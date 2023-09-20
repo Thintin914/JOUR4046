@@ -222,7 +222,11 @@ void main()
   vec2 uv = gl_FragCoord.xy / resolution.x;
   float shade = pattern(uv);
 
-  shade += (0.2 - distance(mouse.xy, uv.xy)) * 0.5;
+  float temp = -distance(mouse.xy, uv.xy) * 0.4;
+
+  if (temp > -0.6){
+    shade += temp;
+  }
 
   gl_FragColor = vec4(colormap(shade).rgb, 1.0);
 }
