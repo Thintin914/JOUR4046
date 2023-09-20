@@ -2,19 +2,13 @@ import { useEffect } from "react"
 import { createDistortionShader } from "./utils/glsl/distortionShader"
 import { CanvasBlock } from "./utils/glsl/CanvasBlock";
 import { motion, useAnimate } from "framer-motion";
+import { EE } from "./Transitioner";
 
 export function Introduction(){
-
-    const [exitScope, exitAnimate] = useAnimate();
-
-    async function exitAnimation() {
-        exitAnimate(exitScope.current, {scale: 60, x: 800}, {duration: 0.5});
-    }
 
     useEffect(() =>{
         createDistortionShader('intro-gl', ['./images/white-wave-bg.jpg'], 0.005);
         createDistortionShader('intro-gl2', ['./images/black-wave-bg.jpg'], 0.005);
-        createDistortionShader('intro-gl3', ['./images/color-gradient.jpg'], 0.001);
     }, [])
 
     return (
@@ -28,7 +22,7 @@ export function Introduction(){
                 whileInView={{scaleX: 1, scaleY: 1, opacity: 1}}
                 whileHover={{scaleX: 1.5}}
                 onClick={() =>{
-                    exitAnimation()
+                    EE.emit('transition', 'slide2');
                 }}>
                 <CanvasBlock id="intro-gl2" canvasW={1000} canvasH={1000} />
             </motion.div>
@@ -55,11 +49,6 @@ export function Introduction(){
 
                 </div>
 
-            </motion.div>
-
-            <motion.div ref={exitScope} className=" absolute left-0 top-0 w-10 h-10"
-                initial={{scale: 0, x: 0}}>
-                <CanvasBlock id="intro-gl3" canvasW={1500} canvasH={1500} customClassName="w-full h-full rounded-full" />
             </motion.div>
 
         </div>
