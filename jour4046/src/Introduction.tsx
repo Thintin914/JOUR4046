@@ -22,7 +22,7 @@ export function Introduction(){
 
             <CanvasBlock id="intro-gl" canvasW={1000} canvasH={1000} />
 
-            <motion.div className=" absolute w-1/3 h-1/2 bg-white hover:cursor-pointer"
+            <motion.div className=" absolute w-2/3 lg:w-1/3 h-1/2 bg-white hover:cursor-pointer"
                 initial={{scaleX: 8, scaleY: 0.5, opacity: 0}}
                 transition={{duration: 0.5}}
                 whileInView={{scaleX: 1, scaleY: 1, opacity: 1}}
@@ -33,7 +33,7 @@ export function Introduction(){
                 <CanvasBlock id="intro-gl2" canvasW={1000} canvasH={1000} />
             </motion.div>
 
-            <motion.div className=" absolute flex flex-col justify-center items-center w-1/3 h-1/2 text-white text-2xl pointer-events-none"
+            <motion.div className=" absolute flex flex-col justify-center items-center w-2/3 lg:w-1/3 h-1/2 text-white text-2xl text-center pointer-events-none"
                 initial={{scale: 2, opacity: 0}}
                 transition={{duration: 0.5}}
                 whileInView={{scale: 1, opacity: 1}}>
