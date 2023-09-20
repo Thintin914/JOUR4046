@@ -22,7 +22,7 @@ export function Introduction(){
 
             <CanvasBlock id="intro-gl" canvasW={1000} canvasH={1000} />
 
-            <motion.div className=" absolute w-2/3 lg:w-1/3 h-1/2 bg-white hover:cursor-pointer"
+            <motion.div className=" absolute w-2/3 lg:w-1/3 h-[66vw] lg:h-[33vw] bg-white hover:cursor-pointer"
                 initial={{scaleX: 8, scaleY: 0.5, opacity: 0}}
                 transition={{duration: 0.5}}
                 whileInView={{scaleX: 1, scaleY: 1, opacity: 1}}
