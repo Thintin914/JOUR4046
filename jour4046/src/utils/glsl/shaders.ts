@@ -143,13 +143,14 @@ float colormap_red(float x) {
   if (x < 0.0) {
       return 15.0 / 255.0;
   } else if (x < 20049.0 / 82979.0) {
-      return (500.0 * x + 15.0) / 255.0;
+      return (500.0 * x + 30.0) / 255.0;
   } else {
-      return 0.6;
+      return 0.3;
   }
 }
 
 float colormap_green(float x) {
+  
   if (x < 20049.0 / 82979.0) {
       return 0.0;
   } else if (x < 327013.0 / 810990.0) {
@@ -163,7 +164,7 @@ float colormap_green(float x) {
 
 float colormap_blue(float x) {
   if (x < 0.0) {
-      return 54.0 / 255.0;
+      return 80.0 / 255.0;
   } else if (x < 7249.0 / 82979.0) {
       return (829.79 * x + 54.51) / 255.0;
   } else if (x < 20049.0 / 82979.0) {

@@ -14,15 +14,15 @@ export function Transitioner(){
     const navigate = useNavigate();
 
     async function FadeIn(path: string){
-        await transitionAnimate(transitionScope.current, {opacity: 1}, {duration: 0.5});
+        await transitionAnimate(transitionScope.current, {opacity: 1}, {duration: 0.25});
         removeGLs([]);
         navigate(path);
-        await delay(500);
+        await delay(250);
         FadeOut();
     }
 
     async function FadeOut(){
-        transitionAnimate(transitionScope.current, {opacity: 0}, {duration: 0.5});
+        transitionAnimate(transitionScope.current, {opacity: 0}, {duration: 0.25});
     }
 
     useEffect(() =>{

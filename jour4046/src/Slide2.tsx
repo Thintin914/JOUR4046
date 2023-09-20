@@ -10,7 +10,7 @@ import { EE } from "./Transitioner";
 export function Slide2(){
 
     useEffect(() =>{
-        createDistortionShader('slide2-gl', ['./images/black-wave-bg.jpg'], 0.0001);
+        createDistortionShader('slide2-gl', ['./images/black-wave-bg.jpg'], 0.001);
         createDistortionShader2('slide2-gl2', 0.005);
     }, [])
 
@@ -22,15 +22,18 @@ export function Slide2(){
                 <p>Problem</p>
             </div>
 
-            <motion.div className=" w-60 h-60 absolute right-0 bottom-0 hover:cursor-pointer"
-                initial={{scale: 1}}
-                whileHover={{scale: 2}}
-                transition={{duration: 1.2}}
+            <motion.div className=" w-40 h-40 absolute right-10 bottom-10 hover:cursor-pointer"
+                initial={{scale: 1, rotate: 45}}
+                whileHover={{scale: 1.5, rotate: 0}}
                 onClick={() =>{
                     EE.emit('transition', 'slide3');
                 }}>
                 <CanvasBlock id="slide2-gl2" canvasW={1000} canvasH={1000} />
             </motion.div>
+
+            <div className=" w-fit h-fit absolute right-10 bottom-10">
+                <p>Next</p>
+            </div>
 
         </div>
     )
