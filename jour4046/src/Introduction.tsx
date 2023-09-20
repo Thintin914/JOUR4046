@@ -40,10 +40,21 @@ export function Introduction(){
                 <p className=" font-bold">JOUR4046</p>
                 <p className=" font-bold">Topic</p>
                 <br />
-                <p>Wu Long Ting, Jacky</p>
-                <p>Vincent Chan</p>
-                <p>Joyce</p>
-                <p>Fanny</p>
+
+                <div className=" w-full flex flex-col justify-center items-center">
+
+                    <div className=" w-full h-fit flex flex-row justify-around items-center gap-5">
+                        <p>Jacky Wu</p>
+                        <p>Vincent Chan</p>
+                    </div>
+
+                    <div className=" w-full h-fit flex flex-row justify-around items-center gap-5">
+                        <p>Joyce</p>
+                        <p>Fanny</p>
+                    </div>
+
+                </div>
+
             </motion.div>
 
             <motion.div ref={exitScope} className=" absolute left-0 top-0 w-10 h-10"
