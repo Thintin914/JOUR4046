@@ -138,6 +138,7 @@ precision lowp float;
 uniform float scale;
 uniform vec2 resolution;
 uniform float time;
+uniform vec2 mouse;
 
 float colormap_red(float x) {
   if (x < 0.0) {
@@ -220,6 +221,9 @@ void main()
 {
   vec2 uv = gl_FragCoord.xy / resolution.x;
   float shade = pattern(uv);
+
+  shade += (0.2 - distance(mouse.xy, uv.xy)) * 0.5;
+
   gl_FragColor = vec4(colormap(shade).rgb, 1.0);
 }
 
