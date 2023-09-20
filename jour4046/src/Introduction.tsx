@@ -37,11 +37,11 @@ export function Introduction(){
                 initial={{scale: 2, opacity: 0}}
                 transition={{duration: 0.5}}
                 whileInView={{scale: 1, opacity: 1}}>
-                <p className=" font-bold">JOUR4046</p>
-                <p className=" font-bold">Topic</p>
+                <p className=" font-light">JOUR4046</p>
+                <p className=" font-light">Incoming Housing Crisis in Hong Kong</p>
                 <br />
 
-                <div className=" w-full flex flex-col justify-center items-center">
+                <div className=" w-full flex flex-col justify-center items-center font-extralight">
 
                     <div className=" w-full h-fit flex flex-row justify-around items-center gap-5">
                         <p>Jacky Wu</p>
