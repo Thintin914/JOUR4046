@@ -1,6 +1,6 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { motion, useAnimate } from "framer-motion";
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useEffect, useRef, useState } from "react";
 import {TfiHandPointUp} from 'react-icons/tfi';
 
 import {
@@ -392,9 +392,20 @@ export function HousePricePreSquareChart(){
 
     const [width, setWidth] = useState<number>(0);
 
+    const perPage = useRef<number>(2);
+
     useEffect(() =>{
         const onresize = () =>{
             setWidth(window.innerWidth);
+
+            perPage.current = 1;
+
+            if (window.innerWidth > 1080){
+                perPage.current = 2;
+            }
+            if (window.innerWidth > 1400){
+                perPage.current = 3;
+            }
         }
         onresize()
 
@@ -438,7 +449,7 @@ export function HousePricePreSquareChart(){
                 <p>香港分區A類樓宇平均呎價</p>
 
                 <LineChart
-                    width={width / 2}
+                    width={width / perPage.current}
                     height={500}
                     data={categoryA}
                     margin={{
@@ -450,8 +461,8 @@ export function HousePricePreSquareChart(){
                     >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
-                    <YAxis />
-                    <Tooltip/>
+                    <YAxis type="number" domain={[0, 30000]}/>
+                    <Tooltip />
                     <Legend />
                     <Line type="monotone" dataKey="港島" stroke="#F1D371">
                         <LabelList content={<CustomizedLabel />} />
@@ -465,7 +476,7 @@ export function HousePricePreSquareChart(){
                 <p>香港分區B類樓宇平均呎價</p>
 
                 <LineChart
-                    width={width / 2}
+                    width={width / perPage.current}
                     height={500}
                     data={categoryB}
                     margin={{
@@ -477,7 +488,7 @@ export function HousePricePreSquareChart(){
                     >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
-                    <YAxis />
+                    <YAxis type="number" domain={[0, 30000]}/>
                     <Tooltip/>
                     <Legend />
                     <Line type="monotone" dataKey="港島" stroke="#F1D371">
@@ -492,7 +503,7 @@ export function HousePricePreSquareChart(){
                 <p>香港分區C類樓宇平均呎價</p>
 
                 <LineChart
-                    width={width / 2}
+                    width={width / perPage.current}
                     height={500}
                     data={categoryC}
                     margin={{
@@ -504,7 +515,7 @@ export function HousePricePreSquareChart(){
                     >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
-                    <YAxis />
+                    <YAxis type="number" domain={[0, 30000]}/>
                     <Tooltip/>
                     <Legend />
                     <Line type="monotone" dataKey="港島" stroke="#F1D371">
@@ -519,7 +530,7 @@ export function HousePricePreSquareChart(){
                 <p>香港分區D類樓宇平均呎價</p>
 
                 <LineChart
-                    width={width / 2}
+                    width={width / perPage.current}
                     height={500}
                     data={categoryD}
                     margin={{
@@ -531,7 +542,7 @@ export function HousePricePreSquareChart(){
                     >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
-                    <YAxis />
+                    <YAxis type="number" domain={[0, 30000]}/>
                     <Tooltip/>
                     <Legend />
                     <Line type="monotone" dataKey="港島" stroke="#F1D371">
@@ -546,7 +557,7 @@ export function HousePricePreSquareChart(){
                 <p>香港分區E類樓宇平均呎價</p>
 
                 <LineChart
-                    width={width / 2}
+                    width={width / perPage.current}
                     height={500}
                     data={categoryE}
                     margin={{
@@ -558,7 +569,7 @@ export function HousePricePreSquareChart(){
                     >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
-                    <YAxis />
+                    <YAxis type="number" domain={[0, 30000]}/>
                     <Tooltip/>
                     <Legend />
                     <Line type="monotone" dataKey="港島" stroke="#F1D371">
