@@ -45,7 +45,6 @@ export async function loadImages(
         callback(name, gl, program, images);
         addGLToUpdate(name, gl, program, speed);
         addNeedResizeGL(name, images[0].width / images[0].height);
-
       }
     };
   

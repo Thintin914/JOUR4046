@@ -232,3 +232,34 @@ void main()
 }
 
 `;
+
+export const cityscapeFragShader = `
+precision lowp float;
+
+uniform sampler2D u_image0;
+
+uniform float scale;
+uniform vec2 resolution;
+uniform float time;
+
+uniform vec2 scroll;
+
+// the texCoords passed in from the vertex shader.
+varying vec2 v_texCoord;
+
+void main(){
+
+  vec2 pos = vec2(v_texCoord.x, mod(v_texCoord.y + scroll.y / resolution.y * 0.5, smoothstep(0.0, 0.5, v_texCoord.y) ));
+  pos = vec2(pos.x, pos.y + abs(sin(time)) );
+
+  if (resolution.x > resolution.y){
+    pos = vec2(pos.x, pos.y * scale);
+  } else {
+    pos = vec2(pos.x * scale, pos.y);
+  }
+
+  vec4 color = texture2D(u_image0, pos);
+
+  gl_FragColor = vec4(color.rgba);
+}
+`;
