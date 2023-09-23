@@ -54,24 +54,26 @@ export function Introduction(){
                     <p>樓市解密：樓價放緩是否最佳入市時機？</p>
                 </motion.div>
 
-                <div className="relative w-fit h-fit flex flex-row justify-center items-center pr-24 mt-10">
+                <div className="relative w-full h-fit flex flex-row justify-start items-center pr-24 mt-10 mb-5 gap-5">
 
-                    <p className="">撰文：張智芬，朱樂怡，胡朗霆，Vincent</p>
+                    <p>撰文：張智芬，朱樂怡，胡朗霆，Vincent</p>
 
-                    <div className=" absolute w-10 h-10 border-[2px] border-white bg-gray-400 rounded-full flex justify-center items-center  right-[0px]">
-                        <p>F</p>
-                    </div>
+                    <div className=" w-fit h-fit flex flex-row justify-center items-center">
+                        <div className=" w-10 h-10 border-[2px] border-white bg-gray-400 rounded-full flex justify-center items-center absolute right-[75px]">
+                            <p>F</p>
+                        </div>
 
-                    <div className=" absolute w-10 h-10 border-[2px] border-white bg-gray-400 rounded-full flex justify-center items-center  right-[-25px]">
-                        <p>J</p>
-                    </div>
+                        <div className=" w-10 h-10 border-[2px] border-white bg-gray-400 rounded-full flex justify-center items-center absolute right-[50px]">
+                            <p>J</p>
+                        </div>
 
-                    <div className=" absolute w-10 h-10 border-[2px] border-white bg-gray-400 rounded-full flex justify-center items-center right-[-50px]">
-                        <p>J</p>
-                    </div>
+                        <div className=" w-10 h-10 border-[2px] border-white bg-gray-400 rounded-full flex justify-center items-center absolute right-[25px]">
+                            <p>J</p>
+                        </div>
 
-                    <div className=" absolute w-10 h-10 border-[2px] border-white bg-gray-400 rounded-full flex justify-center items-center  right-[-75px]">
-                        <p>V</p>
+                        <div className=" w-10 h-10 border-[2px] border-white bg-gray-400 rounded-full flex justify-center items-center absolute right-[0px]">
+                            <p>V</p>
+                        </div>
                     </div>
 
                 </div>
