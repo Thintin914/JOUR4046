@@ -7,13 +7,20 @@ import { delay } from "./utils/delay";
 import { HouseSellingBarChart } from "./HouseSellingBarChart";
 import { HousePricePreSquareChart } from "./HousePricePreSquareChart";
 
+const topics: string[] = [
+    'caption1',
+    'caption2',
+    'caption3',
+    'caption4'
+]
+
 export function Introduction(){
 
     const goToCaption = (name: string) =>{
         let t = document.getElementById(name);
         if (!t) return;
 
-        let y = t.getBoundingClientRect().y - 50;
+        let y = t.getBoundingClientRect().top + window.scrollY - 50;
         window.scrollTo({top: y, left: 0, behavior: "smooth"})
     }
 
@@ -36,6 +43,30 @@ export function Introduction(){
 
             <div className=" fixed w-full h-screen -z-50">
                 <CanvasBlock id="intro-gl" canvasW={1000} canvasH={1000} />
+            </div>
+
+            <div className=" fixed w-full h-screen z-50 flex flex-col justify-center items-end mr-5 pointer-events-none">
+
+                {
+                    topics.map((item, index) =>{
+                        return (
+                            <div key={`topic-item-${index}`} className="w-fit h-fit flex flex-col justify-center items-center">
+
+                                <motion.div className=" w-5 h-5 rounded-full border-2 border-[#d9c58f] m-2 pointer-events-auto hover:cursor-pointer hover:bg-[#d9c58f]" 
+                                    onClick={() => {
+                                        goToCaption(item)
+                                    }}
+                                    initial={{scale: 1}}
+                                    whileHover={{scale: 1.3}}
+                                    transition={{ease: 'easeInOut'}}
+                                />
+            
+                                {index === topics.length - 1 ? <></> : <div className=" bg-[#d9c58f] h-5 w-[2px]" />}
+                            </div>
+                        )
+                    })
+                }
+
             </div>
 
             <motion.div className=" w-full p-5 lg:w-4/5 mt-10 h-fit flex flex-col justify-center items-start"
@@ -180,7 +211,8 @@ export function Introduction(){
                 <motion.div id="caption4" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
                     initial={{width: 0}}
                     whileInView={{width: '100%'}}
-                    transition={{duration: 2, ease: "easeInOut"}}>
+                    transition={{duration: 2, ease: "easeInOut"}}
+                    viewport={{once: true}}>
                     <p>Content: Interview & Gov. Policy on property market & Ending</p>
                 </motion.div>
 
