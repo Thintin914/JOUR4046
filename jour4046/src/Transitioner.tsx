@@ -17,12 +17,12 @@ export function Transitioner(){
         await transitionAnimate(transitionScope.current, {opacity: 1}, {duration: 0.25});
         removeGLs([]);
         navigate(path);
-        await delay(250);
+        await delay(100);
         FadeOut();
     }
 
     async function FadeOut(){
-        transitionAnimate(transitionScope.current, {opacity: 0}, {duration: 0.25});
+        transitionAnimate(transitionScope.current, {opacity: 0}, {duration: .25});
     }
 
     useEffect(() =>{
