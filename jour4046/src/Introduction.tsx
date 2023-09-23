@@ -22,7 +22,7 @@ export function Introduction(){
 
         const f = async() =>{
             await delay(5000);
-            let t = document.getElementById('caption1');
+            let t = document.getElementById('top');
             if (!t) return;
 
             t.style.overflow = ''
