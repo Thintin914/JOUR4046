@@ -41,7 +41,7 @@ export function HouseSellingBarChart(){
     }, [])
 
     return (
-        <div className=" w-full lg:w-4/5 overflow-hidden mt-10 h-fit flex flex-col lg:flex-row justify-center items-center bg-[#00000078]">
+        <div className=" w-full mt-10 h-fit flex flex-col lg:flex-row justify-center items-center bg-[#00000078]">
 
         <div className=" flex flex-col justify-center items-center">
             <p>2021年 - 2023年本港樓宇買賣合約數量</p>

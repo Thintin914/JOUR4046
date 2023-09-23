@@ -262,7 +262,7 @@ void main(){
 
   vec4 color = texture2D(u_image0, pos);
 
-  float ss = min(s / 6.0, 0.6);
+  float ss = min(s / 3.0, 0.6);
 
   color = vec4(color.r * (1.0 - ss), color.g * (1.0 - ss), color.b * (1.0 - ss), 1.0);
 
