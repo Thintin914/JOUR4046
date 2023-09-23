@@ -249,8 +249,10 @@ varying vec2 v_texCoord;
 
 void main(){
 
-  vec2 pos = vec2(v_texCoord.x, mod(v_texCoord.y + scroll.y / resolution.y * 0.5, smoothstep(0.0, 0.5, v_texCoord.y) ));
-  pos = vec2(pos.x, pos.y + abs(sin(time)) );
+  float s = scroll.y / resolution.y;
+
+  vec2 pos = vec2(v_texCoord.x, mod(v_texCoord.y + s * 0.5, smoothstep(0.0, 0.5, v_texCoord.y) ));
+  pos = vec2(pos.x, pos.y + smoothstep(0.0, 1.0, abs(cos(time)) ) );
 
   if (resolution.x > resolution.y){
     pos = vec2(pos.x, pos.y * scale);
@@ -259,6 +261,10 @@ void main(){
   }
 
   vec4 color = texture2D(u_image0, pos);
+
+  float ss = min(s / 3.0, 0.6);
+
+  color = vec4(color.r * (1.0 - ss), color.g * (1.0 - ss), color.b * (1.0 - ss), 1.0);
 
   gl_FragColor = vec4(color.rgba);
 }
