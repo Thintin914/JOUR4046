@@ -33,7 +33,7 @@ html {
 
 @keyframes bounce-x {
   0%, 100% {
-      transform: translateX(-40%);
+      transform: translateX(40%);
       animation-timing-function: cubic-bezier(0.8,0,1,1);
   }
   50% {

@@ -18,11 +18,11 @@ export function Introduction(){
     }
 
     useEffect(() =>{
-        createCityscapeShader('intro-gl', ['./images/cityscape.jpg'], 0.001);
+        createCityscapeShader('intro-gl', ['./images/cityscape.jpg'], 0.0005);
 
         const f = async() =>{
             await delay(5000);
-            let t = document.getElementById('top');
+            let t = document.getElementById('topic');
             if (!t) return;
 
             t.style.overflow = ''
@@ -100,14 +100,14 @@ export function Introduction(){
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
-                transition={{duration: 1, delay: 1}}>
+                transition={{duration: 1}}>
 
                 <motion.div id="caption1" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
                     initial={{width: 0}}
                     whileInView={{width: '100%'}}
-                    transition={{duration: 2, delay: 2, ease: "easeInOut"}}
+                    transition={{duration: 2, ease: "easeInOut"}}
                     viewport={{once: true}}>
-                    <p>標題1 (Lead & 1 - 2 paragraph)</p>
+                    <p>Lead & 1 - 2 paragraph</p>
                 </motion.div>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero justo laoreet sit amet cursus sit. Quis eleifend quam adipiscing vitae proin sagittis nisl. Suspendisse interdum consectetur libero id. Diam vulputate ut pharetra sit. Amet est placerat in egestas erat imperdiet. Id porta nibh venenatis cras sed. Purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae. In vitae turpis massa sed elementum tempus. Netus et malesuada fames ac turpis egestas sed. Sit amet dictum sit amet justo. Sem et tortor consequat id porta nibh. Aliquam faucibus purus in massa. Cursus mattis molestie a iaculis at. Urna condimentum mattis pellentesque id nibh. Potenti nullam ac tortor vitae purus faucibus.</p>
@@ -122,15 +122,15 @@ export function Introduction(){
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
-                transition={{duration: 1, delay: 1}}>
+                transition={{duration: 1}}>
 
                 <motion.div id="caption2" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
                     initial={{width: 0}}
                     whileInView={{width: '100%'}}
-                    transition={{duration: 2, delay: 2, ease: "easeInOut"}}
+                    transition={{duration: 2, ease: "easeInOut"}}
                     viewport={{once: true}}>
                         
-                    <p>標題2 (Content: The average price by district)</p>
+                    <p>Content: The average price by district</p>
                 </motion.div>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero justo laoreet sit amet cursus sit. Quis eleifend quam adipiscing vitae proin sagittis nisl. Suspendisse interdum consectetur libero id. Diam vulputate ut pharetra sit. Amet est placerat in egestas erat imperdiet. Id porta nibh venenatis cras sed. Purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae. In vitae turpis massa sed elementum tempus. Netus et malesuada fames ac turpis egestas sed. Sit amet dictum sit amet justo. Sem et tortor consequat id porta nibh. Aliquam faucibus purus in massa. Cursus mattis molestie a iaculis at. Urna condimentum mattis pellentesque id nibh. Potenti nullam ac tortor vitae purus faucibus.</p>
@@ -147,14 +147,14 @@ export function Introduction(){
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
-                transition={{duration: 1, delay: 1}}>
+                transition={{duration: 1}}>
 
                 <motion.div id="caption3" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
                     initial={{width: 0}}
                     whileInView={{width: '100%'}}
-                    transition={{duration: 2, delay: 2, ease: "easeInOut"}}
+                    transition={{duration: 2, ease: "easeInOut"}}
                     viewport={{once: true}}>
-                    <p>標題3 (Content: The price level of different types of house)</p>
+                    <p>Content: The price level of different types of house</p>
                 </motion.div>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero justo laoreet sit amet cursus sit. Quis eleifend quam adipiscing vitae proin sagittis nisl. Suspendisse interdum consectetur libero id. Diam vulputate ut pharetra sit. Amet est placerat in egestas erat imperdiet. Id porta nibh venenatis cras sed. Purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae. In vitae turpis massa sed elementum tempus. Netus et malesuada fames ac turpis egestas sed. Sit amet dictum sit amet justo. Sem et tortor consequat id porta nibh. Aliquam faucibus purus in massa. Cursus mattis molestie a iaculis at. Urna condimentum mattis pellentesque id nibh. Potenti nullam ac tortor vitae purus faucibus.</p>
@@ -169,13 +169,13 @@ export function Introduction(){
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
-                transition={{duration: 1, delay: 1}}>
+                transition={{duration: 1}}>
 
                 <motion.div id="caption4" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
                     initial={{width: 0}}
                     whileInView={{width: '100%'}}
-                    transition={{duration: 2, delay: 2, ease: "easeInOut"}}>
-                    <p>標題4 (Content: Interview & Gov. Policy on property market & Ending )</p>
+                    transition={{duration: 2, ease: "easeInOut"}}>
+                    <p>Content: Interview & Gov. Policy on property market & Ending</p>
                 </motion.div>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero justo laoreet sit amet cursus sit. Quis eleifend quam adipiscing vitae proin sagittis nisl. Suspendisse interdum consectetur libero id. Diam vulputate ut pharetra sit. Amet est placerat in egestas erat imperdiet. Id porta nibh venenatis cras sed. Purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae. In vitae turpis massa sed elementum tempus. Netus et malesuada fames ac turpis egestas sed. Sit amet dictum sit amet justo. Sem et tortor consequat id porta nibh. Aliquam faucibus purus in massa. Cursus mattis molestie a iaculis at. Urna condimentum mattis pellentesque id nibh. Potenti nullam ac tortor vitae purus faucibus.</p>

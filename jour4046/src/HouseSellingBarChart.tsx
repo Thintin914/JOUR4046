@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
 
 const houseSellingData = [
@@ -17,14 +18,36 @@ const houseSellingData = [
 
 export function HouseSellingBarChart(){
 
+    const [width, setWidth] = useState<number>(0);
+    const perPage = useRef<number>(2);
+    
+    useEffect(() =>{
+        const onresize = () =>{
+            setWidth(window.innerWidth);
+
+            if (window.innerWidth < 1080){
+                perPage.current = 1;
+            } else {
+                perPage.current = 2;
+            }
+        }
+        onresize()
+
+        window.addEventListener('resize', onresize);
+
+        return () =>{
+            window.removeEventListener('resize', onresize);
+        }
+    }, [])
+
     return (
-        <div className=" w-full lg:w-4/5 mt-10 h-fit flex flex-col lg:flex-row justify-center items-center bg-[#00000078]">
+        <div className=" w-full lg:w-4/5 overflow-hidden mt-10 h-fit flex flex-col lg:flex-row justify-center items-center bg-[#00000078]">
 
         <div className=" flex flex-col justify-center items-center">
             <p>2021年 - 2023年本港樓宇買賣合約數量</p>
 
             <BarChart
-                width={500}
+                width={width / perPage.current}
                 height={300}
                 data={houseSellingData}
                 margin={{
@@ -48,7 +71,7 @@ export function HouseSellingBarChart(){
         <div className=" flex flex-col justify-center items-center">
             <p>2021年 - 2023年本港樓宇買賣合約數量</p>
             <BarChart
-                width={500}
+                width={width / perPage.current}
                 height={300}
                 data={houseSellingData}
                 margin={{
