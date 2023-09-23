@@ -42,7 +42,7 @@ export function Introduction(){
         <div className=" relative flex flex-col justify-start items-center w-full h-fit text-white">
 
             <div className=" fixed w-full h-screen -z-50">
-                <CanvasBlock id="intro-gl" canvasW={1000} canvasH={1000} />
+                <CanvasBlock id="intro-gl" canvasW={3000} canvasH={3000} />
             </div>
 
             <div className=" fixed w-full h-screen z-50 flex flex-col justify-center items-end mr-5 pointer-events-none">
