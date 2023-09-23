@@ -249,10 +249,9 @@ varying vec2 v_texCoord;
 
 void main(){
 
-  float s = (scroll.y * 0.2) / resolution.y;
+  float s = scroll.y / resolution.y;
 
-  vec2 pos = vec2(v_texCoord.x, v_texCoord.y + s * 0.5);
-  pos = vec2(pos.x, mod(pos.y + smoothstep(0.0, 1.0, abs(cos(time)) ), smoothstep(0.0, 0.6, v_texCoord.y)) );
+  vec2 pos = vec2(v_texCoord.x, mod(v_texCoord.y + s * 0.5, smoothstep(0.0, 0.6, v_texCoord.y)) );
 
   if (resolution.x > resolution.y){
     pos = vec2(pos.x, pos.y * scale);
