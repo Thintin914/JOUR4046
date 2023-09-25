@@ -105,41 +105,13 @@ export function HongKongMap(){
     }, [district])
 
     return (
-    <div className=" relative w-full p-5 lg:w-4/5 mt-10 h-[50vh] flex flex-col justify-center items-start text-justify text-xl gap-5">
+    <div className=" relative w-full p-5 lg:w-4/5 mt-10 min-h-[50vh] h-fit flex flex-col justify-center items-start text-justify text-xl gap-5">
 
-        {
-            district === '' ? <></> : 
+        <div className=" w-full h-fit flex justify-center items-center">
+            <p>2021 - 2023年分區樓價 (地圖)</p>
+        </div>
 
-            <div className=" absolute w-fit left-0 top-0 h-fit p-2 bg-white flex flex-col justify-center items-start">
-                <p className=" font-semibold"
-                    style={{
-                        color: color[district]
-                    }}
-                >
-                    {data[district].district}
-                </p>
-
-                <table className="table-auto text-black">
-                    <tbody>
-                {
-                    Object.entries(data[district].year).map(([key, item], index) =>{
-                        let typedItem = item as any;
-                        return (
-                            <tr>
-                            <td>
-                                <p className=" font-semibold pr-5">{typedItem.title}</p>
-                            </td>
-                            <td>{typedItem.value}</td>
-                            </tr>
-                        )
-                    })
-                }
-                    </tbody>
-                </table>
-            </div>
-        }
-
-        <div className=" w-full h-full flex justify-center items-center">
+        <div className=" w-full h-full flex justify-center items-center pt-10 overflow-hidden">
 
             <motion.svg
             initial="hidden"
@@ -298,6 +270,38 @@ export function HongKongMap(){
             </motion.svg>
 
         </div>
+
+        {
+            district === '' ? <></> : 
+
+            <div className=" overflow-hidden lg:absolute w-fit left-0 top-0 h-fit p-2 bg-white flex flex-col justify-center items-start">
+                <p className=" font-semibold"
+                    style={{
+                        color: color[district]
+                    }}
+                >
+                    {data[district].district}
+                </p>
+
+                <table className="table-auto text-black">
+                    <tbody>
+                {
+                    Object.entries(data[district].year).map(([key, item], index) =>{
+                        let typedItem = item as any;
+                        return (
+                            <tr>
+                            <td>
+                                <p className=" font-semibold pr-5">{typedItem.title}</p>
+                            </td>
+                            <td>{typedItem.value}</td>
+                            </tr>
+                        )
+                    })
+                }
+                    </tbody>
+                </table>
+            </div>
+        }
 
     </div>
     )
