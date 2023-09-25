@@ -6,6 +6,7 @@ import {AiFillCaretDown} from 'react-icons/ai';
 import { delay } from "./utils/delay";
 import { HouseSellingBarChart } from "./HouseSellingBarChart";
 import { HousePricePreSquareChart } from "./HousePricePreSquareChart";
+import { HongKongMap } from "./HongKongMap";
 
 const topics: string[] = [
     'caption1',
@@ -174,9 +175,7 @@ export function Introduction(){
                 </div>
             </motion.div>
 
-            <div className=" w-full p-5 lg:w-4/5 mt-10 h-[50vh] flex flex-col justify-center items-start text-justify text-xl gap-5">
-                <img src="./images/black-wave-bg.jpg" className=" cover" />
-            </div>
+            <HongKongMap />
 
             <motion.div className="w-full p-5 lg:w-4/5 mt-10 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
