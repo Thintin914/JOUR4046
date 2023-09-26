@@ -248,13 +248,16 @@ uniform vec2 scroll;
 // the texCoords passed in from the vertex shader.
 varying vec2 v_texCoord;
 
+uniform vec2 parallex;
+uniform float scrollRate;
+
 void main(){
 
-  float s = scroll.y / resolution.y / 3.0;
+  float s = scroll.y / resolution.y / scrollRate;
 
   vec2 pos = vec2(v_texCoord.x, mod(v_texCoord.y + s * 0.5, smoothstep(0.0, 0.6, v_texCoord.y)) );
 
-  pos = vec2(pos.x + (mouse.x - 0.5) * 0.05, pos.y - (mouse.y - 0.5) * 0.1);
+  pos = vec2(pos.x + (mouse.x - 0.5) * parallex.x, pos.y - (mouse.y - 0.5) * parallex.y);
 
   if (resolution.x > resolution.y){
     pos = vec2(pos.x, pos.y * scale);
@@ -268,6 +271,11 @@ void main(){
 
   color = vec4(color.r * (1.0 - ss), color.g * (1.0 - ss), color.b * (1.0 - ss), 1.0);
 
-  gl_FragColor = vec4(color.rgba);
+  float a = 1.0;
+  if (color.r == 0.0 && color.g == 0.0 && color.b == 0.0){
+    a = 0.0;
+  }
+
+  gl_FragColor = vec4(color.rgb, a);
 }
 `;

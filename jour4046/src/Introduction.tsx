@@ -26,7 +26,8 @@ export function Introduction(){
     }
 
     useEffect(() =>{
-        createCityscapeShader('intro-gl', ['./images/cityscape.jpg'], 0.0005);
+        createCityscapeShader('intro-gl', ['./images/cityscape.jpg'], 0.0005, 0.05, 0.1, 3);
+        createCityscapeShader('intro-gl2', ['./images/cityscape-2.png'], 0.0005, 0.07, 0.13, 2.5);
 
         const f = async() =>{
             await delay(5000);
@@ -44,6 +45,10 @@ export function Introduction(){
 
             <div className=" fixed w-full h-screen -z-50">
                 <CanvasBlock id="intro-gl" canvasW={3000} canvasH={3000} />
+            </div>
+
+            <div className=" fixed w-full h-screen -z-40">
+                <CanvasBlock id="intro-gl2" canvasW={1000} canvasH={1000} />
             </div>
 
             <div className=" fixed w-full h-screen z-50 flex flex-col justify-center items-end mr-5 pointer-events-none">
@@ -128,7 +133,7 @@ export function Introduction(){
 
             </motion.div>
 
-            <motion.div className="w-full p-5 lg:w-4/5 mt-32 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="w-full p-5 lg:w-4/5 h-fit mt-80 flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
