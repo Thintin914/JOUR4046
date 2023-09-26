@@ -100,10 +100,6 @@ export function HongKongMap(){
 
     const [district, setDistrict] = useState<string>('HKI');
 
-    useEffect(() =>{
-        
-    }, [district])
-
     return (
     <div className=" relative w-full p-5 lg:w-4/5 mt-10 min-h-[50vh] h-fit flex flex-col justify-center items-start text-justify text-xl gap-5">
 
