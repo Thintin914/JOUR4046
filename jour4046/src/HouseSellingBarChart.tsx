@@ -3,17 +3,77 @@ import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "rec
 
 const houseSellingData = [
     {
-      name: '一手樓宇買賣合約總數',
-      2021: 17650,
-      2022: 10315,
-      2023: 7184
+      name: '中西區',
+      二手樓宇售價: 521.0,
     },
     {
-        name: '二手樓宇買賣合約總數',
-        2021: 56647,
-        2022: 34375,
-        2023: 22103
-    }
+        name: '灣仔',
+        二手樓宇售價: 532.5,
+    },
+    {
+        name: '東區',
+        二手樓宇售價: 404.0,
+    },
+    {
+        name: '南區',
+        二手樓宇售價: 410.0,
+    },
+    {
+        name: '油尖旺',
+        二手樓宇售價: 356.0,
+    },
+    {
+        name: '深水埗',
+        二手樓宇售價: 353.0,
+    },
+    {
+        name: '九龍城',
+        二手樓宇售價: 379.9,
+    },
+    {
+        name: '黃大仙',
+        二手樓宇售價: 400.0,
+    },
+    {
+        name: '觀塘',
+        二手樓宇售價: 408.0,
+    },
+    {
+        name: '葵青',
+        二手樓宇售價: 450.0,
+    },
+    {
+        name: '荃灣',
+        二手樓宇售價: 475.0,
+    },
+    {
+        name: '屯門',
+        二手樓宇售價: 491.0,
+    },
+    {
+        name: '元朗',
+        二手樓宇售價: 494.0,
+    },
+    {
+        name: '北區',
+        二手樓宇售價: 470.0,
+    },
+    {
+        name: '大埔',
+        二手樓宇售價: 400.0,
+    },
+    {
+        name: '沙田',
+        二手樓宇售價: 500.0,
+    },
+    {
+        name: '西貢',
+        二手樓宇售價: 576.9,
+    },
+    {
+        name: '離島',
+        二手樓宇售價: 447.5,
+    },
 ];
 
 export function HouseSellingBarChart(){
@@ -25,11 +85,13 @@ export function HouseSellingBarChart(){
         const onresize = () =>{
             setWidth(window.innerWidth);
 
-            if (window.innerWidth < 1080){
-                perPage.current = 1;
-            } else {
-                perPage.current = 2;
-            }
+            perPage.current = 1;
+
+            // if (window.innerWidth < 1080){
+            //     perPage.current = 1;
+            // } else {
+            //     perPage.current = 2;
+            // }
         }
         onresize()
 
@@ -44,7 +106,8 @@ export function HouseSellingBarChart(){
         <div className=" w-full mt-10 h-fit flex flex-col lg:flex-row justify-center items-center bg-[#00000078]">
 
         <div className=" flex flex-col justify-center items-center">
-            <p>2021年 - 2023年本港樓宇買賣合約數量</p>
+            <p> 全港18區二手樓宇售價中位數 (百萬)</p>
+            <p>A類樓宇 (40平方米/ 430呎以下)</p>
 
             <BarChart
                 width={width / perPage.current}
@@ -59,36 +122,10 @@ export function HouseSellingBarChart(){
                 >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
-                <YAxis />
+                <YAxis domain={[0, 800]} />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="2021" fill="#6685B3" />
-                <Bar dataKey="2022" fill="#9CB8D7" />
-                <Bar dataKey="2023" fill="#0E2B61" />
-            </BarChart>
-        </div>
-
-        <div className=" flex flex-col justify-center items-center">
-            <p>2021年 - 2023年本港樓宇買賣合約數量</p>
-            <BarChart
-                width={width / perPage.current}
-                height={300}
-                data={houseSellingData}
-                margin={{
-                    top: 5,
-                    right: 30,
-                    left: 20,
-                    bottom: 5
-                }}
-                >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="2021" fill="#6685B3" />
-                <Bar dataKey="2022" fill="#9CB8D7" />
-                <Bar dataKey="2023" fill="#163775" />
+                <Bar dataKey="二手樓宇售價" fill="#6685B3" />
             </BarChart>
         </div>
 

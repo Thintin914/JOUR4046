@@ -16,346 +16,99 @@ import {
 
 const categoryA = [
     {
-        name: "2021 S1",
-        港島: 17448,
-        九龍: 15272,
-        新界: 14107,
+        name: "2019 Q1",
+        租金指數: 213.3,
+        售價指數: 409.7
     },
     {
-        name: "2021 S2",
-        港島: 17733,
-        九龍: 15411,
-        新界: 14341
+        name: "2019 Q2",
+        租金指數: 215.8,
+        售價指數: 437.8
     },
     {
-        name: "2021 S3",
-        港島: 18006,
-        九龍: 15916,
-        新界: 14123
+        name: "2019 Q3",
+        租金指數: 218.4,
+        售價指數: 437.0
     },
     {
-        name: "2021 S4",
-        港島: 17183,
-        九龍: 14942,
-        新界: 14189
+        name: "2019 Q4",
+        租金指數: 211.3,
+        售價指數: 423.7
     },
     {
-        name: "2022 S1",
-        港島: 17001,
-        九龍: 14770,
-        新界: 13968
+        name: "2020 Q1",
+        租金指數: 202.2,
+        售價指數: 418.7
     },
     {
-        name: "2022 S2",
-        港島: 16748,
-        九龍: 14544,
-        新界: 13767
+        name: "2020 Q2",
+        租金指數: 197.1,
+        售價指數: 425.2
     },
     {
-        name: "2022 S3",
-        港島: 15478,
-        九龍: 13885,
-        新界: 13204
+        name: "2020 Q3",
+        租金指數: 198.7,
+        售價指數: 425.5
     },
     {
-        name: "2022 S4",
-        港島: 14138,
-        九龍: 12817,
-        新界: 12245
+        name: "2020 Q4",
+        租金指數: 194.8,
+        售價指數: 423.2
     },
     {
-        name: "2023 S1",
-        港島: 14496,
-        九龍: 13151,
-        新界: 12509
+        name: "2021 Q1",
+        租金指數: 191.7,
+        售價指數: 429.0
     },
     {
-        name: "2023 S2",
-        港島: 14768,
-        九龍: 12777,
-        新界: 12555
+        name: "2021 Q2",
+        租金指數: 195.1,
+        售價指數: 436.2
     },
     {
-        name: "2023 截至7月",
-        港島: 13977,
-        九龍: 12354,
-        新界: 11854
-    }
-  ];
-
-  const categoryB = [
-    {
-        name: "2021 S1",
-        港島: 16930,
-        九龍: 15061,
-        新界: 12574,
+        name: "2021 Q3",
+        租金指數: 199.2,
+        售價指數: 441.8
     },
     {
-        name: "2021 S2",
-        港島: 17325,
-        九龍: 15169,
-        新界: 12766
+        name: "2021 Q4",
+        租金指數: 200.7,
+        售價指數: 437.6
     },
     {
-        name: "2021 S3",
-        港島: 17264,
-        九龍: 15050,
-        新界: 12768
+        name: "2022 Q1",
+        租金指數: 196.1,
+        售價指數: 425.7
     },
     {
-        name: "2021 S4",
-        港島: 17135,
-        九龍: 14235,
-        新界: 12501
+        name: "2022 Q2",
+        租金指數: 194.0,
+        售價指數: 423.7
     },
     {
-        name: "2022 S1",
-        港島: 16955,
-        九龍: 14717,
-        新界: 12584
+        name: "2022 Q3",
+        租金指數: 196.9,
+        售價指數: 405.3
     },
     {
-        name: "2022 S2",
-        港島: 16889,
-        九龍: 14755,
-        新界: 12599
+        name: "2022 Q4",
+        租金指數: 195.8,
+        售價指數: 375.5
     },
     {
-        name: "2022 S3",
-        港島: 15702,
-        九龍: 13886,
-        新界: 11865
+        name: "2023 Q1",
+        租金指數: 194.1,
+        售價指數: 378.6
     },
     {
-        name: "2022 S4",
-        港島: 14561,
-        九龍: 12922,
-        新界: 11296
+        name: "2023 Q2",
+        租金指數: 199.3,
+        售價指數: 383.1
     },
     {
-        name: "2023 S1",
-        港島: 15182,
-        九龍: 13620,
-        新界: 11556
-    },
-    {
-        name: "2023 S2",
-        港島: 15317,
-        九龍: 13765,
-        新界: 11605
-    },
-    {
-        name: "2023 截至7月",
-        港島: 14118,
-        九龍: 12836,
-        新界: 11369
-    }
-  ];
-
-  const categoryC = [
-    {
-        name: "2021 S1",
-        港島: 19388,
-        九龍: 17853,
-        新界: 12673,
-    },
-    {
-        name: "2021 S2",
-        港島: 19936,
-        九龍: 17119,
-        新界: 12823
-    },
-    {
-        name: "2021 S3",
-        港島: 20408,
-        九龍: 17762,
-        新界: 12895
-    },
-    {
-        name: "2021 S4",
-        港島: 20226,
-        九龍: 17225,
-        新界: 12661
-    },
-    {
-        name: "2022 S1",
-        港島: 19461,
-        九龍: 16503,
-        新界: 12536
-    },
-    {
-        name: "2022 S2",
-        港島: 19125,
-        九龍: 16352,
-        新界: 12963
-    },
-    {
-        name: "2022 S3",
-        港島: 19304,
-        九龍: 15838,
-        新界: 12575
-    },
-    {
-        name: "2022 S4",
-        港島: 17461,
-        九龍: 14649,
-        新界: 11794
-    },
-    {
-        name: "2023 S1",
-        港島: 18193,
-        九龍: 15485,
-        新界: 12265
-    },
-    {
-        name: "2023 S2",
-        港島: 17921,
-        九龍: 14626,
-        新界: 12538
-    },
-    {
-        name: "2023 截至7月",
-        港島: 16794,
-        九龍: 14538,
-        新界: 11975
-    }
-  ];
-
-  const categoryD = [
-    {
-        name: "2021 S1",
-        港島: 21661,
-        九龍: 19440,
-        新界: 11417,
-    },
-    {
-        name: "2021 S2",
-        港島: 23244,
-        九龍: 18766,
-        新界: 11875
-    },
-    {
-        name: "2021 S3",
-        港島: 23638,
-        九龍: 20388,
-        新界: 11893
-    },
-    {
-        name: "2021 S4",
-        港島: 22989,
-        九龍: 20265,
-        新界: 11597
-    },
-    {
-        name: "2022 S1",
-        港島: 21032,
-        九龍: 19036,
-        新界: 11447
-    },
-    {
-        name: "2022 S2",
-        港島: 21853,
-        九龍: 16089,
-        新界: 11320
-    },
-    {
-        name: "2022 S3",
-        港島: 21297,
-        九龍: 17315,
-        新界: 10986
-    },
-    {
-        name: "2022 S4",
-        港島: 20350,
-        九龍: 18116,
-        新界: 10031
-    },
-    {
-        name: "2023 S1",
-        港島: 20959,
-        九龍: 16097,
-        新界: 11365
-    },
-    {
-        name: "2023 S2",
-        港島: 21825,
-        九龍: 18008,
-        新界: 11772
-    },
-    {
-        name: "2023 截至7月",
-        港島: 19253,
-        九龍: 17309,
-        新界: 10526
-    }
-  ];
-
-  const categoryE = [
-    {
-        name: "2021 S1",
-        港島: 25891,
-        九龍: 17928,
-        新界: 10859,
-    },
-    {
-        name: "2021 S2",
-        港島: 25269,
-        九龍: 20567,
-        新界: 10772
-    },
-    {
-        name: "2021 S3",
-        港島: 28062,
-        九龍: 29760,
-        新界: 10639
-    },
-    {
-        name: "2021 S4",
-        港島: 28543,
-        九龍: 25506,
-        新界: 10302
-    },
-    {
-        name: "2022 S1",
-        港島: 25891,
-        九龍: 28806,
-        新界: 9540
-    },
-    {
-        name: "2022 S2",
-        港島: 25269,
-        九龍: 22147,
-        新界: 10944
-    },
-    {
-        name: "2022 S3",
-        港島: 28062,
-        九龍: 12260,
-        新界: 10993
-    },
-    {
-        name: "2022 S4",
-        港島: 28543,
-        九龍: 18174,
-        新界: 8236
-    },
-    {
-        name: "2023 S1",
-        港島: 26541,
-        九龍: 18358,
-        新界: 10675
-    },
-    {
-        name: "2023 S2",
-        港島: 23602,
-        九龍: 17556,
-        新界: 9481
-    },
-    {
-        name: "2023 截至7月",
-        港島: 26163,
-        九龍: 17556,
-        新界: 10730
+        name: "截至8月",
+        租金指數: 203.5,
+        售價指數: 371.1
     }
   ];
 
@@ -400,12 +153,12 @@ export function HousePricePreSquareChart(){
 
             perPage.current = 1;
 
-            if (window.innerWidth > 1080){
-                perPage.current = 2;
-            }
-            if (window.innerWidth > 1400){
-                perPage.current = 3;
-            }
+            // if (window.innerWidth > 1080){
+            //     perPage.current = 2;
+            // }
+            // if (window.innerWidth > 1400){
+            //     perPage.current = 3;
+            // }
         }
         onresize()
 
@@ -446,7 +199,8 @@ export function HousePricePreSquareChart(){
         >
 
             <div className=" flex flex-col justify-center items-center">
-                <p>香港分區A類樓宇平均呎價</p>
+                <p> 2019 - 2023年8月樓宇租金及售價指數</p>
+                <p>A類樓宇 (40平方米/ 430呎以下)</p>
 
                 <LineChart
                     width={width / perPage.current}
@@ -461,122 +215,13 @@ export function HousePricePreSquareChart(){
                     >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
-                    <YAxis type="number" domain={[0, 30000]}/>
+                    <YAxis type="number" domain={[0, 500]}/>
                     <Tooltip />
                     <Legend />
-                    <Line type="monotone" dataKey="港島" stroke="#F1D371">
+                    <Line type="monotone" dataKey="租金指數" stroke="#F1D371">
                         <LabelList content={<CustomizedLabel />} />
                     </Line>
-                    <Line type="monotone" dataKey="九龍" stroke="#71A3F1" />
-                    <Line type="monotone" dataKey="新界" stroke="#82ca9d" />
-                </LineChart>
-            </div>
-
-            <div className=" flex flex-col justify-center items-center">
-                <p>香港分區B類樓宇平均呎價</p>
-
-                <LineChart
-                    width={width / perPage.current}
-                    height={500}
-                    data={categoryB}
-                    margin={{
-                        top: 20,
-                        right: 30,
-                        left: 20,
-                        bottom: 10
-                    }}
-                    >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
-                    <YAxis type="number" domain={[0, 30000]}/>
-                    <Tooltip/>
-                    <Legend />
-                    <Line type="monotone" dataKey="港島" stroke="#F1D371">
-                        <LabelList content={<CustomizedLabel />} />
-                    </Line>
-                    <Line type="monotone" dataKey="九龍" stroke="#71A3F1" />
-                    <Line type="monotone" dataKey="新界" stroke="#82ca9d" />
-                </LineChart>
-            </div>
-
-            <div className=" flex flex-col justify-center items-center">
-                <p>香港分區C類樓宇平均呎價</p>
-
-                <LineChart
-                    width={width / perPage.current}
-                    height={500}
-                    data={categoryC}
-                    margin={{
-                        top: 20,
-                        right: 30,
-                        left: 20,
-                        bottom: 10
-                    }}
-                    >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
-                    <YAxis type="number" domain={[0, 30000]}/>
-                    <Tooltip/>
-                    <Legend />
-                    <Line type="monotone" dataKey="港島" stroke="#F1D371">
-                        <LabelList content={<CustomizedLabel />} />
-                    </Line>
-                    <Line type="monotone" dataKey="九龍" stroke="#71A3F1" />
-                    <Line type="monotone" dataKey="新界" stroke="#82ca9d" />
-                </LineChart>
-            </div>
-
-            <div className=" flex flex-col justify-center items-center">
-                <p>香港分區D類樓宇平均呎價</p>
-
-                <LineChart
-                    width={width / perPage.current}
-                    height={500}
-                    data={categoryD}
-                    margin={{
-                        top: 20,
-                        right: 30,
-                        left: 20,
-                        bottom: 10
-                    }}
-                    >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
-                    <YAxis type="number" domain={[0, 30000]}/>
-                    <Tooltip/>
-                    <Legend />
-                    <Line type="monotone" dataKey="港島" stroke="#F1D371">
-                        <LabelList content={<CustomizedLabel />} />
-                    </Line>
-                    <Line type="monotone" dataKey="九龍" stroke="#71A3F1" />
-                    <Line type="monotone" dataKey="新界" stroke="#82ca9d" />
-                </LineChart>
-            </div>
-
-            <div className=" flex flex-col justify-center items-center">
-                <p>香港分區E類樓宇平均呎價</p>
-
-                <LineChart
-                    width={width / perPage.current}
-                    height={500}
-                    data={categoryE}
-                    margin={{
-                        top: 20,
-                        right: 30,
-                        left: 20,
-                        bottom: 10
-                    }}
-                    >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
-                    <YAxis type="number" domain={[0, 30000]}/>
-                    <Tooltip/>
-                    <Legend />
-                    <Line type="monotone" dataKey="港島" stroke="#F1D371">
-                        <LabelList content={<CustomizedLabel />} />
-                    </Line>
-                    <Line type="monotone" dataKey="九龍" stroke="#71A3F1" />
-                    <Line type="monotone" dataKey="新界" stroke="#82ca9d" />
+                    <Line type="monotone" dataKey="售價指數" stroke="#71A3F1" />
                 </LineChart>
             </div>
 

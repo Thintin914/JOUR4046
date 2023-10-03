@@ -23,69 +23,37 @@ const pathVariants = {
 let data: { [name: string]: any } = {};
 data['NTW'] = {
     district: '新界西',
-    year: {
-        2021: {
-            title: '2021',
-            value: 172.55
-        },
-        2022: {
-            title: '2022',
-            value: 164.14
-        },
-        2023: {
-            title: '2023 (截至9月10日)',
-            value: 152.07
+    details: {
+        median: {
+            title: '百萬',
+            value: 407.5
         }
     }
 };
 data['NTE'] = {
     district: '新界東',
-    year: {
-        2021: {
-            title: '2021',
-            value: 198.07
-        },
-        2022: {
-            title: '2022',
-            value: 187.33
-        },
-        2023: {
-            title: '2023 (截至9月10日)',
-            value: 177.15
+    details: {
+        median: {
+            title: '百萬',
+            value: 385.62
         }
     }
 };
 data['KL'] = {
     district: '九龍',
-    year: {
-        2021: {
-            title: '2021',
-            value: 181.02
-        },
-        2022: {
-            title: '2022',
-            value: 168.95
-        },
-        2023: {
-            title: '2023 (截至9月10日)',
-            value: 159.93
+    details: {
+        median: {
+            title: '百萬',
+            value: 630.1
         }
     }
 };
 data['HKI'] = {
     district: '港島',
-    year: {
-        2021: {
-            title: '2021',
-            value: 191.01
-        },
-        2022: {
-            title: '2022',
-            value: 178.06
-        },
-        2023: {
-            title: '2023 (截至9月10日)',
-            value: 166.95
+    details: {
+        median: {
+            title: '百萬',
+            value: 906
         }
     }
 };
@@ -103,8 +71,9 @@ export function HongKongMap(){
     return (
     <div className=" relative w-full p-5 lg:w-4/5 mt-10 min-h-[50vh] h-fit flex flex-col justify-center items-start text-justify text-xl gap-5">
 
-        <div className=" w-full h-fit flex justify-center items-center">
-            <p>2021 - 2023年分區樓價 (地圖)</p>
+        <div className=" w-full h-fit flex flex-col justify-center items-center">
+            <p>2023年全港新盤售價中位數)</p>
+            <p>A類樓宇（40平方米/430呎以下）</p>
         </div>
 
         <div className=" w-full h-full flex justify-center items-center pt-10 overflow-hidden">
@@ -124,7 +93,7 @@ export function HongKongMap(){
                 variants={pathVariants}
                 className=" fill-rose-500 hover:fill-white hover:cursor-pointer"
                 onHoverStart={() =>{
-                    setDistrict('NTW');
+                    setDistrict('KL');
                 }}
                 id="HK-KI" />
             <motion.path
@@ -282,7 +251,7 @@ export function HongKongMap(){
                 <table className="table-auto text-black">
                     <tbody>
                 {
-                    Object.entries(data[district].year).map(([key, item], index) =>{
+                    Object.entries(data[district].details).map(([key, item], index) =>{
                         let typedItem = item as any;
                         return (
                             <tr>
