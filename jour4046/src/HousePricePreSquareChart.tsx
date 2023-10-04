@@ -176,18 +176,7 @@ export function HousePricePreSquareChart(){
     }
 
     return (
-    <div className=" relative w-full mt-10 h-fit bg-[#00000078] flex">
-
-
-        <motion.div ref={panelScope} className=" overflow-hidden absolute w-full h-full bg-black z-10 flex justify-center items-center pointer-events-none"
-            initial={{opacity: 0.6}}
-        >
-
-            <div className=" text-8xl animate-bounce-x">
-                <TfiHandPointUp />
-            </div>
-
-        </motion.div>
+    <div className=" w-full h-fit bg-[#00000078] flex">
 
         <div className=" w-full overflow-x-scroll whitespace-nowrap flex flex-row justify-start items-center gap-5"
             onClick={() =>{

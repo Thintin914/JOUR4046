@@ -1,12 +1,14 @@
-import { useEffect } from "react"
+import { useEffect, useRef, useState } from "react"
 import { CanvasBlock } from "./utils/glsl/CanvasBlock";
 import { motion } from "framer-motion";
 import { createCityscapeShader } from "./utils/glsl/cityscapeShader";
 import {AiFillCaretDown} from 'react-icons/ai';
 import { delay } from "./utils/delay";
-import { HouseSellingBarChart } from "./HouseSellingBarChart";
+import { HouseSellingBarChart, houseSellingData } from "./HouseSellingBarChart";
 import { HousePricePreSquareChart } from "./HousePricePreSquareChart";
 import { HongKongMap } from "./HongKongMap";
+import AnimatedNumbers from "react-animated-numbers";
+import {BsFillHouseCheckFill} from 'react-icons/bs'
 
 const topics: string[] = [
     'caption1',
@@ -16,6 +18,13 @@ const topics: string[] = [
 ]
 
 export function Introduction(){
+
+    const [salary, setSalary] = useState<number>(0);
+
+    const districtInputField = useRef<HTMLSelectElement | null>(null);
+    const percentageInputField = useRef<HTMLInputElement | null>(null);
+
+    const [yearNeeded, setYearNeeded] = useState<number | null>(null);
 
     const goToCaption = (name: string) =>{
         let t = document.getElementById(name);
@@ -134,30 +143,26 @@ export function Introduction(){
                 viewport={{once: true}}
                 transition={{duration: 1}}>
 
-                <motion.div id="caption1" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
-                    initial={{width: 0}}
-                    whileInView={{width: '100%'}}
-                    transition={{duration: 2, ease: "easeInOut"}}
-                    viewport={{once: true}}>
-                    <p>Lead & 1 - 2 paragraph</p>
-                </motion.div>
+                <div id="caption1" className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                    <p>受疫情和環球經濟不景氣影響，香港樓市從高峰回落，隨著美國持續加息亦令潛在買家卻步，私人住宅售價從疫情前的高位下跌近一成；而政府一再放寬按揭成數和住宅樓花按揭，加上近期不少新盤「劈價」出售，希望吸引買家入市。</p>
 
-                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-5">
-                    <p>
-                    受疫情和環球經濟不景氣影響，香港樓市從高峰回落，隨著美國持續加息亦令潛在買家卻步，私人住宅售價從疫情前的高位下跌近一成；而政府一再放寬按揭成數和住宅樓花按揭，加上近期不少新盤「劈價」出售，希望吸引買家入市。
-                    </p>
-                    <p>
-                    香港樓價冠絕全球，多次成為全球樓價最難負擔城市。而根據差餉物業估價署（差估署）公佈的樓價指數，香港樓價至2003年沙士後不斷飆升，由2003年的61.6到2019年的383.0的高位，於17年間升逾4.2倍。
-                    </p>
-                    <p>
-                    但疫情爆發、利率上升加上環球經濟增長放緩，令香港樓價開始下跌。根據瑞銀公佈的全球房地產泡沫指數，今年是香港自2015年報告發表以來首次跌出「泡沫風險」的區間；而疫情爆發對房地產市場帶來的影響，在中港通關後亦未能完全抵消，匯豐更「轉軚」，看淡香港樓市，預料明年樓市會下跌5%。
-                    </p>
+                    <div className="w-full h-fit flex flex-col justify-center items-start text-justify text-xl gap-5">
+                        <motion.div className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
+                            initial={{width: 0}}
+                            whileInView={{width: '100%'}}
+                            transition={{duration: 2, ease: "easeInOut"}}
+                            viewport={{once: true}}>
+                                    
+                            <p>Content: The average price by district</p>
+                        </motion.div>
+                    </div>
+
+                    <p>香港樓價冠絕全球，多次成為全球樓價最難負擔城市。而根據差餉物業估價署（差估署）公佈的樓價指數，香港樓價至2003年沙士後不斷飆升，由2003年的61.6到2019年的383.0的高位，於17年間升逾4.2倍。</p>
+                    <p>但疫情爆發、利率上升加上環球經濟增長放緩，令香港樓價開始下跌。根據瑞銀公佈的全球房地產泡沫指數，今年是香港自2015年報告發表以來首次跌出「泡沫風險」的區間；而疫情爆發對房地產市場帶來的影響，在中港通關後亦未能完全抵消，匯豐更「轉軚」，看淡香港樓市，預料明年樓市會下跌5%。</p>
                 </div>
             </motion.div>
 
-            <HousePricePreSquareChart />
-
-            <motion.div className="w-full p-5 lg:w-4/5 mt-10 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
@@ -168,18 +173,18 @@ export function Introduction(){
                     whileInView={{width: '100%'}}
                     transition={{duration: 2, ease: "easeInOut"}}
                     viewport={{once: true}}>
-                        
+                            
                     <p>Content: The average price by district</p>
                 </motion.div>
 
-                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-5">
-
+                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                    <p>儘管香港樓價有下跌的跡象，但對比其他城市依然高昂。 以單位面積小於430呎的「上車盤」為例，據差估署資料顯示，此類型單位於疫情期間依然價格高企，2021年全年樓價指數更是歷年最高位。雖然現在從高位回落近一成七，但對於年輕人而言仍是頗大的負擔。</p>
                 </div>
             </motion.div>
 
-            <HongKongMap />
+            <HousePricePreSquareChart />
 
-            <motion.div className="w-full p-5 lg:w-4/5 mt-10 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
@@ -193,17 +198,15 @@ export function Introduction(){
                     <p>Content: The price level of different types of house</p>
                 </motion.div>
 
-                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-5">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero justo laoreet sit amet cursus sit. Quis eleifend quam adipiscing vitae proin sagittis nisl. Suspendisse interdum consectetur libero id. Diam vulputate ut pharetra sit. Amet est placerat in egestas erat imperdiet. Id porta nibh venenatis cras sed. Purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae. In vitae turpis massa sed elementum tempus. Netus et malesuada fames ac turpis egestas sed. Sit amet dictum sit amet justo. Sem et tortor consequat id porta nibh. Aliquam faucibus purus in massa. Cursus mattis molestie a iaculis at. Urna condimentum mattis pellentesque id nibh. Potenti nullam ac tortor vitae purus faucibus.</p>
-                    <p>Placerat vestibulum lectus mauris ultrices eros in. Purus ut faucibus pulvinar elementum integer enim neque volutpat. Arcu ac tortor dignissim convallis aenean et tortor. Rhoncus est pellentesque elit ullamcorper dignissim. Pharetra diam sit amet nisl suscipit adipiscing. Posuere lorem ipsum dolor sit amet consectetur. Ultrices neque ornare aenean euismod elementum. Aliquam etiam erat velit scelerisque in dictum non consectetur a. Lectus urna duis convallis convallis tellus id interdum velit laoreet. Mauris cursus mattis molestie a iaculis at erat.</p>
-                    <p>Vel turpis nunc eget lorem dolor. At urna condimentum mattis pellentesque id nibh. Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio. Tempor commodo ullamcorper a lacus. Magna eget est lorem ipsum dolor. Neque vitae tempus quam pellentesque. Diam donec adipiscing tristique risus. Diam sollicitudin tempor id eu nisl. Tellus rutrum tellus pellentesque eu tincidunt tortor. Faucibus in ornare quam viverra. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel. Mattis nunc sed blandit libero volutpat sed. Montes nascetur ridiculus mus mauris vitae ultricies leo. Nibh ipsum consequat nisl vel pretium lectus. Diam maecenas ultricies mi eget mauris pharetra et. Ac placerat vestibulum lectus mauris ultrices eros in. Aliquam vestibulum morbi blandit cursus risus at ultrices.</p>
-                    <p>Consectetur libero id faucibus nisl tincidunt eget nullam. Posuere morbi leo urna molestie at elementum. Commodo nulla facilisi nullam vehicula ipsum a. Nunc sed id semper risus in hendrerit gravida rutrum quisque. Vel pretium lectus quam id leo. Velit laoreet id donec ultrices tincidunt arcu non sodales neque. Fermentum et sollicitudin ac orci phasellus. Orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Diam quis enim lobortis scelerisque fermentum dui faucibus. Ipsum dolor sit amet consectetur adipiscing elit ut aliquam purus. Aliquam malesuada bibendum arcu vitae. Mi quis hendrerit dolor magna. Sed adipiscing diam donec adipiscing. Sed risus ultricies tristique nulla aliquet enim tortor. Tristique et egestas quis ipsum. Amet facilisis magna etiam tempor orci. Congue mauris rhoncus aenean vel elit scelerisque.</p>
+                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                    <p>在聯繫匯率的制度下，香港跟隨美聯儲加息步伐，按揭利息上升，令買家入市意欲下降。市道淡靜下，不少新盤「劈價」出售，吸引買家入市。其中8月開售、由長實發展的油塘親海駅II，最平的「上車盤」折實後僅售賣290萬元，並於一周內收逾3.8萬票，為紀錄新高。</p>
+                    <p>新盤「劈價」固然吸引不少買家入市，但樓價仍然處於高位。中原地產資料顯示，截至今年九月底，有22個新盤開價發售，而其上車盤的價格落在約354至1431萬不等；按港島、九龍、新界東、新界西劃分，四區樓價中位數亦可差近一倍。而按照政府最新公佈香港25至34歲青年月入息中位數22200元計算，即使是購買最低價的單位，亦需要不吃不喝逾13年才能夠全款買入。</p>
                 </div>
             </motion.div>
 
-            <HouseSellingBarChart />
+            <HongKongMap />
 
-            <motion.div className="w-full p-5 lg:w-4/5 mt-10 mb-32 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
@@ -217,11 +220,187 @@ export function Introduction(){
                     <p>Content: Interview & Gov. Policy on property market & Ending</p>
                 </motion.div>
 
-                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-5">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero justo laoreet sit amet cursus sit. Quis eleifend quam adipiscing vitae proin sagittis nisl. Suspendisse interdum consectetur libero id. Diam vulputate ut pharetra sit. Amet est placerat in egestas erat imperdiet. Id porta nibh venenatis cras sed. Purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae. In vitae turpis massa sed elementum tempus. Netus et malesuada fames ac turpis egestas sed. Sit amet dictum sit amet justo. Sem et tortor consequat id porta nibh. Aliquam faucibus purus in massa. Cursus mattis molestie a iaculis at. Urna condimentum mattis pellentesque id nibh. Potenti nullam ac tortor vitae purus faucibus.</p>
-                    <p>Placerat vestibulum lectus mauris ultrices eros in. Purus ut faucibus pulvinar elementum integer enim neque volutpat. Arcu ac tortor dignissim convallis aenean et tortor. Rhoncus est pellentesque elit ullamcorper dignissim. Pharetra diam sit amet nisl suscipit adipiscing. Posuere lorem ipsum dolor sit amet consectetur. Ultrices neque ornare aenean euismod elementum. Aliquam etiam erat velit scelerisque in dictum non consectetur a. Lectus urna duis convallis convallis tellus id interdum velit laoreet. Mauris cursus mattis molestie a iaculis at erat.</p>
-                    <p>Vel turpis nunc eget lorem dolor. At urna condimentum mattis pellentesque id nibh. Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio. Tempor commodo ullamcorper a lacus. Magna eget est lorem ipsum dolor. Neque vitae tempus quam pellentesque. Diam donec adipiscing tristique risus. Diam sollicitudin tempor id eu nisl. Tellus rutrum tellus pellentesque eu tincidunt tortor. Faucibus in ornare quam viverra. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel. Mattis nunc sed blandit libero volutpat sed. Montes nascetur ridiculus mus mauris vitae ultricies leo. Nibh ipsum consequat nisl vel pretium lectus. Diam maecenas ultricies mi eget mauris pharetra et. Ac placerat vestibulum lectus mauris ultrices eros in. Aliquam vestibulum morbi blandit cursus risus at ultrices.</p>
-                    <p>Consectetur libero id faucibus nisl tincidunt eget nullam. Posuere morbi leo urna molestie at elementum. Commodo nulla facilisi nullam vehicula ipsum a. Nunc sed id semper risus in hendrerit gravida rutrum quisque. Vel pretium lectus quam id leo. Velit laoreet id donec ultrices tincidunt arcu non sodales neque. Fermentum et sollicitudin ac orci phasellus. Orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Diam quis enim lobortis scelerisque fermentum dui faucibus. Ipsum dolor sit amet consectetur adipiscing elit ut aliquam purus. Aliquam malesuada bibendum arcu vitae. Mi quis hendrerit dolor magna. Sed adipiscing diam donec adipiscing. Sed risus ultricies tristique nulla aliquet enim tortor. Tristique et egestas quis ipsum. Amet facilisis magna etiam tempor orci. Congue mauris rhoncus aenean vel elit scelerisque.</p>
+                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                    <p>新盤價格戰亦帶動二手樓樓價下跌，業主紛紛蝕讓希望可以搶佔市場。儘管如此，二手樓樓價仍不比新盤低。按照香港十八區劃分、據中原地產近一個月的成交整合，各區二手樓價格中位數落在約353至577萬不等，僅有四區二手樓售價中位數貼近新盤最低售價，即使是指月入約2.22萬元的人仍需要不吃不喝逾13年才能夠全款買入，可見即使數據顯示「上車盤」的價格回落近一成七，但在港買樓對於年青人而言仍是高不可攀。</p>
+                </div>
+            </motion.div>
+
+            <HouseSellingBarChart />
+
+            <motion.div className="w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+                initial={{opacity: 0}}
+                whileInView={{opacity: 1}}
+                viewport={{once: true}}
+                transition={{duration: 1}}>
+
+                <motion.div id="caption5" className=" w-full pb-2 text-2xl lg:text-5xl flex flex-col justify-center items-center gap-5 font-semibold overflow-hidden whitespace-nowrap"
+                    initial={{width: 0}}
+                    whileInView={{width: '100%'}}
+                    transition={{duration: 2, ease: "easeInOut"}}
+                    viewport={{once: true}}>
+                    <p>你的月收入何時才能全款買樓？</p>
+                    <p className=" font-light text-3xl">(以18區二手樓宇售價中位數計算)</p>
+                </motion.div>
+
+                <div className="w-full flex flex-col justify-center items-start">
+                    <table className=" table-auto">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>選擇置業地區：</p>
+                                </td>
+                                <td>
+                                    <select ref={districtInputField} className=" w-[50vw] p-2 bg-[#414141]">
+                                        {
+                                            houseSellingData.map((item, index) =>{
+                                                return (
+                                                    <option key={`district-item-${index}`}>{item.name}</option>
+                                                )
+                                            })
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>輸入你的每月收入：</p>
+                                </td>
+                                <td>
+                                    <div className=" relative w-[50vw] h-40 flex justify-center items-center">
+                                        <input type="text" className=" w-full h-full p-2 bg-transparent text-[1px] border-white opacity-70 outline-none text-transparent border-2 rounded-md mt-5"
+                                            onChange={((e) =>{
+                                                if (e.target.value.match(/[^$,.\d]/)){
+                                                    e.target.value = '0';
+                                                    setSalary(0)
+                                                    return;
+                                                }
+                                                let val = parseFloat(e.target.value);
+                                                if (isNaN(val)){
+                                                    e.target.value = '0';
+                                                    val = 0;
+                                                }
+                                                if (val < 0)
+                                                    val = 0
+                                                if (val > 9999999)
+                                                    val = 9999999;
+                                                setSalary(val);
+                                            })}
+                                        />
+
+                                        <div className=" w-full h-full flex justify-center items-center pointer-events-none absolute overflow-hidden gap-2">
+                                            
+                                            <p>$</p>
+                                            <AnimatedNumbers
+                                                includeComma
+                                                animateToNumber={salary}
+                                                fontStyle={{ fontSize: 40, fontStyle: 'italic' }}
+                                                locale="en-US"
+                                                configs={[
+                                                { mass: 1, tension: 220, friction: 100 },
+                                                { mass: 1, tension: 180, friction: 130 },
+                                                { mass: 1, tension: 280, friction: 90 },
+                                                { mass: 1, tension: 180, friction: 135 },
+                                                { mass: 1, tension: 260, friction: 100 },
+                                                { mass: 1, tension: 210, friction: 180 },
+                                                ]}
+                                            ></AnimatedNumbers>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>選擇你每月存款比例：</p>
+                                </td>
+                                <td>
+                                    <input ref={percentageInputField} type="number" step={0.5} className=" w-[50vw] p-2 bg-[#414141] mt-5" 
+                                        onChange={(e) =>{
+                                            let val = parseFloat(e.target.value);
+                                            if (val < 0)
+                                                e.target.value = '0';
+                                            if (val > 100)
+                                                e.target.value = '100';
+                                        }}
+                                    />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div className=" w-full flex justify-center items-center text-3xl">
+                    <motion.div className=" bg-[#f3b45c] p-5 text-black font-semibold hover:cursor-pointer"
+                        initial={{scale: 1}}
+                        whileHover={{scale: 1.3}}
+                        transition={{ease: "easeInOut"}}
+                        onClick={() =>{
+                            let index = houseSellingData.findIndex((e) => e.name === districtInputField.current!.value);
+                            if (index === -1)
+                                return;
+
+                            let result = (houseSellingData[index].二手樓宇售價 * 1000) / (salary * parseFloat(percentageInputField.current!.value) / 100);
+
+                            setYearNeeded(Math.round(result))
+
+                            goToCaption('caption6')
+                        }}
+                        >
+                        查閱結果
+                    </motion.div>
+                </div>
+
+                <div id="caption6" className="mt-60"></div>
+                {
+                    yearNeeded === null || isNaN(yearNeeded) ? <></> :
+                    <div className="w-full flex flex-col justify-center items-center gap-5">
+                        <div className=" w-full flex justify-center items-center gap-5 font-bold">
+                                <p className="text-9xl">~ {yearNeeded}</p>
+                                <p>Yrs</p>
+                        </div>
+
+                        <BsFillHouseCheckFill />
+                        <p className=" text-justify">To Purchase an Apartment</p>
+                    </div>
+                }
+
+            </motion.div>
+
+            <motion.div className="w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+                initial={{opacity: 0}}
+                whileInView={{opacity: 1}}
+                viewport={{once: true}}
+                transition={{duration: 1}}>
+
+                <motion.div id="caption7" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
+                    initial={{width: 0}}
+                    whileInView={{width: '100%'}}
+                    transition={{duration: 2, ease: "easeInOut"}}
+                    viewport={{once: true}}>
+                    <p>Content: Interview & Gov. Policy on property market & Ending</p>
+                </motion.div>
+
+                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                    <p>息口向上令樓宇買賣市場轉趨淡靜，租賃市場卻受益。據差估署公佈最新私宅租金指數報185.4點，按月升1.42%，創逾3年半新高，今年首8個月累計升幅達5.64%。430呎或以下的單位租金指數更重上200點，回到2019年的水平。</p>
+                </div>
+            </motion.div>
+
+            <motion.div className="w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+                initial={{opacity: 0}}
+                whileInView={{opacity: 1}}
+                viewport={{once: true}}
+                transition={{duration: 1}}>
+
+                <motion.div id="caption7" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
+                    initial={{width: 0}}
+                    whileInView={{width: '100%'}}
+                    transition={{duration: 2, ease: "easeInOut"}}
+                    viewport={{once: true}}>
+                    <p>Content: Interview & Gov. Policy on property market & Ending</p>
+                </motion.div>
+
+                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                    <p>市場上越來越多人「轉買為租」，而在沒有能力買樓的情況下，當租金水平持續上升，令港人居住問題越趨嚴竣。香港浸會大學工商管理學院副院長文國樑指，租金應該是薪金約X成才可以稱為可負擔的，即是指月收入為2.22萬，租金應該要低放X元是合理的。而按中原物業9月的租務成交統計，香港十八區的租金中位數約是1.05至1.88萬不等，</p>
                 </div>
             </motion.div>
 

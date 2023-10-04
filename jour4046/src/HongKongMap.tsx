@@ -69,7 +69,7 @@ export function HongKongMap(){
     const [district, setDistrict] = useState<string>('HKI');
 
     return (
-    <div className=" relative w-full p-5 lg:w-4/5 mt-10 min-h-[50vh] h-fit flex flex-col justify-center items-start text-justify text-xl gap-5">
+    <div className=" relative w-full p-5 lg:w-4/5 min-h-[50vh] h-fit flex flex-col justify-center items-start text-justify text-xl gap-5">
 
         <div className=" w-full h-fit flex flex-col justify-center items-center">
             <p>2023年全港新盤售價中位數)</p>

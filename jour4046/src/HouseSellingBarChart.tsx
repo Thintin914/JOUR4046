@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
 
-const houseSellingData = [
+export const houseSellingData = [
     {
       name: '中西區',
       二手樓宇售價: 521.0,
@@ -103,7 +103,7 @@ export function HouseSellingBarChart(){
     }, [])
 
     return (
-        <div className=" w-full mt-10 h-fit flex flex-col lg:flex-row justify-center items-center bg-[#00000078]">
+        <div className=" mt-10 w-full h-fit flex flex-col lg:flex-row justify-center items-center bg-[#00000078]">
 
         <div className=" flex flex-col justify-center items-center">
             <p> 全港18區二手樓宇售價中位數 (百萬)</p>
