@@ -9,6 +9,7 @@ import { HousePricePreSquareChart } from "./HousePricePreSquareChart";
 import { HongKongMap } from "./HongKongMap";
 import AnimatedNumbers from "react-animated-numbers";
 import {BsFillHouseCheckFill} from 'react-icons/bs'
+import { HouseRantingBarChart } from "./HousingRantingBarChart";
 
 const topics: string[] = [
     'caption1',
@@ -267,7 +268,7 @@ export function Introduction(){
                                 </td>
                                 <td>
                                     <div className=" relative w-[50vw] h-40 flex justify-center items-center">
-                                        <input type="text" className=" w-full h-full p-2 bg-transparent text-[1px] border-white opacity-70 outline-none text-transparent border-2 rounded-md mt-5"
+                                        <input type="text" className=" w-full h-full p-2 bg-transparent border-white opacity-70 outline-none text-center text-6xl text-transparent border-2 rounded-md mt-5"
                                             onChange={((e) =>{
                                                 if (e.target.value.match(/[^$,.\d]/)){
                                                     e.target.value = '0';
@@ -366,7 +367,7 @@ export function Introduction(){
 
             </motion.div>
 
-            <motion.div className="w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="w-full p-5 lg:w-4/5 mt-60 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
@@ -384,6 +385,8 @@ export function Introduction(){
                     <p>息口向上令樓宇買賣市場轉趨淡靜，租賃市場卻受益。據差估署公佈最新私宅租金指數報185.4點，按月升1.42%，創逾3年半新高，今年首8個月累計升幅達5.64%。430呎或以下的單位租金指數更重上200點，回到2019年的水平。</p>
                 </div>
             </motion.div>
+
+            <HouseRantingBarChart />
 
             <motion.div className="w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
