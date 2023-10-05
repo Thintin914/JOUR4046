@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { CanvasBlock } from "./utils/glsl/CanvasBlock";
 import { motion } from "framer-motion";
 import { createCityscapeShader } from "./utils/glsl/cityscapeShader";
-import {AiFillCaretDown} from 'react-icons/ai';
+import {AiFillCaretDown, AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai';
 import { delay } from "./utils/delay";
 import { HouseSellingBarChart, houseSellingData } from "./HouseSellingBarChart";
 import { HousePricePreSquareChart } from "./HousePricePreSquareChart";
@@ -272,46 +272,65 @@ export function Introduction(){
                                     <p>輸入你的每月收入：</p>
                                 </td>
                                 <td>
-                                    <div className=" relative w-[50vw] h-40 flex justify-center items-center">
-                                        <input type="text" className=" w-full h-full p-2 bg-transparent outline-none cursor-pointer text-center text-6xl text-transparent hover:border-2 border-dashed border-orange-300 rounded-md mt-5"
-                                            onChange={((e) =>{
-                                                if (e.target.value.match(/[^$,.\d]/)){
-                                                    e.target.value = '0';
-                                                    setSalary(0)
-                                                    return;
-                                                }
-                                                let val = parseFloat(e.target.value);
-                                                if (isNaN(val)){
-                                                    e.target.value = '0';
-                                                    val = 0;
-                                                }
-                                                if (val < 0)
-                                                    val = 0
-                                                if (val > 9999999)
-                                                    val = 9999999;
-                                                setSalary(val);
-                                            })}
-                                        />
+                                    <div className=" flex justify-start items-center">
+                                        <div className=" relative w-[50vw] h-40 flex justify-center items-center">
+                                            <input type="text" className=" w-full h-full p-2 bg-transparent outline-none cursor-pointer text-center text-6xl text-transparent hover:border-2 border-dashed border-orange-300 rounded-md mt-5"
+                                                onChange={((e) =>{
+                                                    if (e.target.value.match(/[^$,.\d]/)){
+                                                        e.target.value = '0';
+                                                        setSalary(0)
+                                                        return;
+                                                    }
+                                                    let val = parseFloat(e.target.value);
+                                                    if (isNaN(val)){
+                                                        e.target.value = '0';
+                                                        val = 0;
+                                                    }
+                                                    if (val < 0)
+                                                        val = 0
+                                                    if (val > 9999999)
+                                                        val = 9999999;
+                                                    setSalary(val);
+                                                })}
+                                            />
 
-                                        <div className=" w-full h-full flex justify-center items-center pointer-events-none absolute overflow-hidden gap-2">
-                                            
-                                            <BsCashCoin />
-                                            <AnimatedNumbers
-                                                includeComma
-                                                animateToNumber={salary}
-                                                fontStyle={{ fontSize: 35 }}
-                                                locale="en-US"
-                                                configs={[
-                                                    { mass: 0.5, tension: 170, friction: 150 },
-                                                    { mass: 0.5, tension: 130, friction: 180 },
-                                                    { mass: 0.5, tension: 230, friction: 140 },
-                                                    { mass: 0.5, tension: 130, friction: 185 },
-                                                    { mass: 0.5, tension: 210, friction: 150 },
-                                                    { mass: 0.5, tension: 160, friction: 230 },
-                                                ]}
-                                            ></AnimatedNumbers>
-                                            <p>HKD</p>
+                                            <div className=" w-full h-full flex justify-center items-center pointer-events-none absolute overflow-hidden gap-2">
+                                                
+                                                <BsCashCoin />
+                                                <AnimatedNumbers
+                                                    includeComma
+                                                    animateToNumber={salary}
+                                                    fontStyle={{ fontSize: 35 }}
+                                                    locale="en-US"
+                                                    configs={[{"mass":1,"tension":140,"friction":126},{"mass":1,"tension":130,"friction":114},{"mass":1,"tension":150,"friction":112},{"mass":1,"tension":130,"friction":120}]}
+                                                ></AnimatedNumbers>
+                                                <p>HKD</p>
+                                            </div>
                                         </div>
+
+                                        <div className=" w-fit h-fit flex flex-col justify-center items-center gap-5 ml-5 select-none">
+                                            <motion.div className=" w-10 h-10 flex justify-center items-center text-black text-3xl bg-[#eecd85] rounded-full hover:cursor-pointer"
+                                                onClick={() =>{
+                                                    if (salary + 1000 <= 9999999)
+                                                    setSalary(salary + 1000);
+                                                }}
+                                                initial={{scale: 1}}
+                                                whileHover={{scaleX: 0.8, scaleY: 1.2}}
+                                                whileTap={{scaleX: 1.4, scaleY: 0.4}}>
+                                                <AiOutlinePlus />
+                                            </motion.div>
+                                            <motion.div className=" w-10 h-10 flex justify-center items-center text-black text-3xl bg-[#eecd85] rounded-full hover:cursor-pointer"
+                                                onClick={() =>{
+                                                    if (salary - 1000 >= 0)
+                                                    setSalary(salary - 1000);
+                                                }}
+                                                initial={{scale: 1}}
+                                                whileHover={{scaleX: 0.8, scaleY: 1.2}}
+                                                whileTap={{scaleX: 1.4, scaleY: 0.4}}>
+                                                <AiOutlineMinus />
+                                            </motion.div>
+                                        </div>
+
                                     </div>
                                 </td>
                             </tr>
@@ -320,47 +339,66 @@ export function Introduction(){
                                     <p>選擇你每月存款比例：</p>
                                 </td>
                                 <td>
-                                    <div className=" relative w-[50vw] h-40 flex justify-center items-center">
-                                        <input type="text" className=" w-full h-full p-2 bg-transparent outline-none cursor-pointer text-center text-6xl text-transparent hover:border-2 border-dashed border-orange-300 rounded-md mt-5"
-                                            onChange={(e) =>{
-                                                if (e.target.value.match(/[^$,.\d]/)){
-                                                    e.target.value = '0';
-                                                    setSalary(0)
-                                                    return;
-                                                }
-                                                let val = parseFloat(e.target.value);
-                                                if (isNaN(val)){
-                                                    e.target.value = '0';
-                                                    val = 0;
-                                                }
-                                                if (val < 0)
-                                                    val = 0
-                                                if (val > 100)
-                                                    val = 100;
+                                <div className=" flex justify-start items-center">
+                                        <div className=" relative w-[50vw] h-40 flex justify-center items-center">
+                                            <input type="text" className=" w-full h-full p-2 bg-transparent outline-none cursor-pointer text-center text-6xl text-transparent hover:border-2 border-dashed border-orange-300 rounded-md mt-5"
+                                                onChange={((e) =>{
+                                                    if (e.target.value.match(/[^$,.\d]/)){
+                                                        e.target.value = '0';
+                                                        setSalaryPercentage(0)
+                                                        return;
+                                                    }
+                                                    let val = parseFloat(e.target.value);
+                                                    if (isNaN(val)){
+                                                        e.target.value = '0';
+                                                        val = 0;
+                                                    }
+                                                    if (val < 0)
+                                                        val = 0
+                                                    if (val > 100)
+                                                        val = 100;
+                                                    setSalaryPercentage(val);
+                                                })}
+                                            />
 
-                                                setSalaryPercentage(val);
-                                            }}
-                                        />
-
-                                        <div className=" w-full h-full flex justify-center items-center pointer-events-none absolute overflow-hidden gap-2">
-                                            
-                                            <BsCash />
-                                            <AnimatedNumbers
-                                                includeComma
-                                                animateToNumber={salaryPercentage}
-                                                fontStyle={{ fontSize: 35 }}
-                                                locale="en-US"
-                                                configs={[
-                                                { mass: 0.5, tension: 170, friction: 150 },
-                                                { mass: 0.5, tension: 130, friction: 180 },
-                                                { mass: 0.5, tension: 230, friction: 140 },
-                                                { mass: 0.5, tension: 130, friction: 185 },
-                                                { mass: 0.5, tension: 210, friction: 150 },
-                                                { mass: 0.5, tension: 160, friction: 230 },
-                                                ]}
-                                            ></AnimatedNumbers>
-                                            <p>%</p>
+                                            <div className=" w-full h-full flex justify-center items-center pointer-events-none absolute overflow-hidden gap-2">
+                                                
+                                                <BsCash />
+                                                <AnimatedNumbers
+                                                    includeComma
+                                                    animateToNumber={salaryPercentage}
+                                                    fontStyle={{ fontSize: 35 }}
+                                                    locale="en-US"
+                                                    configs={[{"mass":1,"tension":140,"friction":126},{"mass":1,"tension":130,"friction":114},{"mass":1,"tension":150,"friction":112},{"mass":1,"tension":130,"friction":120}]}
+                                                ></AnimatedNumbers>
+                                                <p>%</p>
+                                            </div>
                                         </div>
+
+                                        <div className=" w-fit h-fit flex flex-col justify-center items-center gap-5 ml-5 select-none">
+                                            <motion.div className=" w-10 h-10 flex justify-center items-center text-black text-3xl bg-[#eecd85] rounded-full hover:cursor-pointer"
+                                                onClick={() =>{
+                                                    if (salaryPercentage + 5 <= 100)
+                                                        setSalaryPercentage(salaryPercentage + 5);
+                                                }}
+                                                initial={{scale: 1}}
+                                                whileHover={{scaleX: 0.8, scaleY: 1.2}}
+                                                whileTap={{scaleX: 1.4, scaleY: 0.4}}>
+                                                <AiOutlinePlus />
+                                            </motion.div>
+                                            <motion.div className=" w-10 h-10 flex justify-center items-center text-black text-3xl bg-[#eecd85] rounded-full hover:cursor-pointer"
+                                                onClick={() =>{
+                                                    if (salaryPercentage - 5 >= 0){
+                                                        setSalaryPercentage(salaryPercentage - 5);
+                                                    }
+                                                }}
+                                                initial={{scale: 1}}
+                                                whileHover={{scaleX: 0.8, scaleY: 1.2}}
+                                                whileTap={{scaleX: 1.4, scaleY: 0.4}}>
+                                                <AiOutlineMinus />
+                                            </motion.div>
+                                        </div>
+
                                     </div>
                                 </td>
                             </tr>
