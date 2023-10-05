@@ -25,7 +25,7 @@ data['NTW'] = {
     district: '新界西',
     details: {
         median: {
-            title: '',
+            title: '$',
             value: '$407.5 萬'
         }
     }
@@ -34,8 +34,8 @@ data['NTE'] = {
     district: '新界東',
     details: {
         median: {
-            title: '',
-            value: '$385.62 萬'
+            title: '$',
+            value: '385.62 萬'
         }
     }
 };
@@ -43,8 +43,8 @@ data['KL'] = {
     district: '九龍',
     details: {
         median: {
-            title: '',
-            value: '$ 630.1 萬'
+            title: '$',
+            value: '630.1 萬'
         }
     }
 };
@@ -52,8 +52,8 @@ data['HKI'] = {
     district: '港島',
     details: {
         median: {
-            title: '',
-            value: '$ 906 萬'
+            title: '$',
+            value: '906 萬'
         }
     }
 };

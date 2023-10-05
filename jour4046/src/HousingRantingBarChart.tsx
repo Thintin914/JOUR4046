@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
+import { CustomTooltip } from "./HousePricePreSquareChart";
 
 const houseRantingData = [
     {
@@ -123,9 +124,9 @@ export function HouseRantingBarChart(){
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis domain={[0, 20000]} />
-                <Tooltip />
+                <Tooltip content={<CustomTooltip prefix={'$'} postfix={'元'}  />} />
                 <Legend />
-                <Bar dataKey="租金" fill="#6685B3" />
+                <Bar dataKey="租金" fill="#ABDA6B" />
             </BarChart>
         </div>
 

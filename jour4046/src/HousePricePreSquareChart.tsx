@@ -112,7 +112,7 @@ const categoryA = [
     }
   ];
 
-  const CustomizedLabel: FunctionComponent<any> = (props: any) => {
+  export const CustomizedLabel: FunctionComponent<any> = (props: any) => {
     const { x, y, stroke, value } = props;
   
     return (
@@ -122,7 +122,7 @@ const categoryA = [
     );
   };
   
-  const CustomizedAxisTick: FunctionComponent<any> = (props: any) => {
+  export const CustomizedAxisTick: FunctionComponent<any> = (props: any) => {
     const { x, y, payload } = props;
   
     return (
@@ -139,6 +139,35 @@ const categoryA = [
         </text>
       </g>
     );
+  };
+
+  export const CustomTooltip: FunctionComponent<any> = (props: any) => {
+
+    const { active, payload, label, prefix, postfix } = props;
+
+    if (active && payload && payload.length) {
+      return (
+        <div className=" min-w-[200px] flex flex-col justify-start items-center rounded-md bg-[#3232354d] p-1">
+
+            <p className=" font-bold">{label}</p>
+
+            {
+                payload.map((pld: any) => (
+                    <div className=" flex justify-start items-center gap-5">
+                        <div className=" font-semibold bg-[#3232357c]" style={{
+                            color: pld.color
+                        }}>
+                            {pld.dataKey}
+                        </div>
+                        <div>{`${prefix ? prefix : ''} ${pld.value} ${postfix ? postfix : ''}`}</div>
+                    </div>
+                ))
+            }
+        </div>
+      );
+    }
+  
+    return null;
   };
 
 export function HousePricePreSquareChart(){
@@ -169,23 +198,10 @@ export function HousePricePreSquareChart(){
         }
     }, [])
 
-    const [panelScope, panelAnimate] = useAnimate();
-
-    async function panelFadeOut(){
-        panelAnimate(panelScope.current, {opacity: 0}, {duration: 0.2});
-    }
-
     return (
     <div className=" w-full h-fit bg-[#00000078] flex">
 
-        <div className=" w-full overflow-x-scroll whitespace-nowrap flex flex-row justify-start items-center gap-5"
-            onClick={() =>{
-                panelFadeOut();
-            }}
-            onScroll={() =>{
-                panelFadeOut();
-            }}
-        >
+        <div className=" w-full overflow-x-scroll whitespace-nowrap flex flex-row justify-start items-center gap-5">
 
             <div className=" flex flex-col justify-center items-center">
                 <p> 2019 - 2023年8月樓宇租金及售價指數</p>
@@ -205,10 +221,10 @@ export function HousePricePreSquareChart(){
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
                     <YAxis type="number" domain={[0, 500]}/>
-                    <Tooltip />
+                    <Tooltip content={<CustomTooltip prefix={'$'} postfix={'萬'} />} />
                     <Legend />
                     <Line type="monotone" dataKey="租金指數" stroke="#F1D371">
-                        <LabelList content={<CustomizedLabel />} />
+                    <LabelList content={<CustomizedLabel />} />
                     </Line>
                     <Line type="monotone" dataKey="售價指數" stroke="#71A3F1" />
                 </LineChart>
