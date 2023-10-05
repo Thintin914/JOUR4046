@@ -15,7 +15,10 @@ const topics: string[] = [
     'caption1',
     'caption2',
     'caption3',
-    'caption4'
+    'caption4',
+    'caption5',
+    'caption6',
+    'caption7'
 ]
 
 export function Introduction(){
@@ -50,7 +53,7 @@ export function Introduction(){
     }, [])
 
     return (
-        <div className=" relative flex flex-col justify-start items-center w-full h-fit text-white">
+        <div className=" relative flex flex-col justify-start items-center w-full h-fit text-white tracking-tight">
 
             <div className=" fixed w-full h-screen -z-50">
                 <CanvasBlock id="intro-gl" canvasW={3000} canvasH={3000} />
@@ -126,7 +129,10 @@ export function Introduction(){
                     <img src="./images/black-wave-bg.jpg" className=" cover" />
                 </div>
 
+                <p className="text-justify text-xl mt-10 bg-[#29262b7d]">受疫情和環球經濟不景氣影響，香港樓市從高峰回落，隨著美國持續加息亦令潛在買家卻步，私人住宅售價從疫情前的高位下跌近一成；而政府一再放寬按揭成數和住宅樓花按揭，加上近期不少新盤「劈價」出售，希望吸引買家入市。</p>
+
                 <div className=" w-full h-fit flex justify-center items-center mt-10">
+                    
                     <div className=" w-fit h-fit flex flex-col justify-center items-center hover:text-[#f2e8d0] hover:cursor-pointer"
                         onClick={() =>{
                             goToCaption('caption1')
@@ -138,14 +144,13 @@ export function Introduction(){
 
             </motion.div>
 
-            <motion.div className="w-full p-5 lg:w-4/5 h-fit mt-80 flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="w-full p-5 mt-80 lg:w-4/5 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
                 transition={{duration: 1}}>
 
                 <div id="caption1" className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
-                    <p>受疫情和環球經濟不景氣影響，香港樓市從高峰回落，隨著美國持續加息亦令潛在買家卻步，私人住宅售價從疫情前的高位下跌近一成；而政府一再放寬按揭成數和住宅樓花按揭，加上近期不少新盤「劈價」出售，希望吸引買家入市。</p>
 
                     <div className="w-full h-fit flex flex-col justify-center items-start text-justify text-xl gap-5">
                         <motion.div className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
