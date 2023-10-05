@@ -106,7 +106,7 @@ export function HouseRantingBarChart(){
         <div className=" mt-10 w-full h-fit flex flex-col lg:flex-row justify-center items-center bg-[#00000078]">
 
         <div className=" flex flex-col justify-center items-center">
-            <p> 全港18區樓宇租金中位數</p>
+            <p> 全港18區樓宇租金中位數 (元)</p>
             <p>A類樓宇 (40平方米/ 430呎以下)</p>
 
             <BarChart

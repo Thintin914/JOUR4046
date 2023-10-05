@@ -243,7 +243,7 @@ export function Introduction(){
                     <p className=" font-light text-3xl">(以18區二手樓宇售價中位數計算)</p>
                 </motion.div>
 
-                <div className="w-full flex flex-col justify-center items-start">
+                <div className="w-full flex flex-col justify-center items-start bg-[#00000078] p-2">
                     <table className=" table-auto w-full">
                         <tbody>
                             <tr>
@@ -394,11 +394,11 @@ export function Introduction(){
                     <div className="w-full h-screen flex flex-col justify-center items-center gap-5">
                         <div className=" w-full flex justify-center items-center gap-5 font-bold">
                                 <p className="text-9xl">~ {yearNeeded}</p>
-                                <p>年時間</p>
+                                <p>年</p>
                         </div>
 
                         <BsFillHouseCheckFill />
-                        <p className=" text-justify text-5xl">才可以購買單位</p>
+                        <p className=" text-justify text-5xl">你才能全款購買房屋</p>
                     </div>
                 }
 
