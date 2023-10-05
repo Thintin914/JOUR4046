@@ -385,7 +385,7 @@ export function Introduction(){
 
                             if (!isNaN(year) && isFinite(year)){
                                 setYearNeeded(year)
-                                goToCaption('caption6')
+                                goToCaption('yearNeeded')
                             }
                         }}
                         >
@@ -393,7 +393,7 @@ export function Introduction(){
                     </motion.div>
                 </div>
 
-                <div id="caption6" className="mt-60"></div>
+                <div id="yearNeeded" className="mt-60"></div>
                 {
                     yearNeeded === null ? <></> :
                     <div className="w-full h-screen flex flex-col justify-center items-center gap-5">
@@ -415,7 +415,7 @@ export function Introduction(){
                 viewport={{once: true}}
                 transition={{duration: 1}}>
 
-                <motion.div id="caption7" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
+                <motion.div id="caption6" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
                     initial={{width: 0}}
                     whileInView={{width: '100%'}}
                     transition={{duration: 2, ease: "easeInOut"}}
@@ -430,7 +430,7 @@ export function Introduction(){
 
             <HouseRantingBarChart />
 
-            <motion.div className="w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="w-full p-5 lg:w-4/5 mt-20 mb-52 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
