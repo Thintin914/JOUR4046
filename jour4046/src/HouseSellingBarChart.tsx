@@ -108,6 +108,8 @@ export function HouseSellingBarChart(){
         <div className=" relative mt-10 w-full h-fit flex flex-col lg:flex-row justify-center items-center bg-[#00000078]">
 
         <BottomDeco bottom={ -80} />
+        <BottomDeco bottom={ -80} left={0} />
+        <BottomDeco bottom={ -80} right={0} />
 
         <div className=" flex flex-col justify-center items-center text-lg">
             <p> 全港18區二手樓宇售價中位數 (萬)</p>

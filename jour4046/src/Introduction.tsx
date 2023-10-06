@@ -10,7 +10,7 @@ import { HongKongMap } from "./HongKongMap";
 import AnimatedNumbers from "react-animated-numbers";
 import {BsCash, BsCashCoin, BsFillHouseCheckFill} from 'react-icons/bs'
 import { HouseRantingBarChart } from "./HousingRantingBarChart";
-import { BottomDeco, BottomRightDeco, LeftDeco, RightDeco, TopLeftDeco } from "./utils/LineDeco";
+import { BottomDeco, BottomLeftDeco, BottomRightDeco, LeftDeco, RightDeco, TopLeftDeco, TopRightDeco, VerticalDeco } from "./utils/LineDeco";
 
 const topics: string[] = [
     'caption1',
@@ -196,7 +196,7 @@ export function Introduction(){
 
             </motion.div>
 
-            <motion.div className="relative w-full p-5 lg:w-4/5 mt-20 mb-32 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="relative w-full p-5 lg:w-4/5 mt-20 mb-32 h-fit flex flex-col justify-center items-center text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
@@ -216,18 +216,20 @@ export function Introduction(){
                     <p>在聯繫匯率的制度下，香港跟隨美聯儲加息步伐，按揭利息上升，令買家入市意欲下降。市道淡靜下，不少新盤「劈價」出售，吸引買家入市。其中8月開售、由長實發展的油塘親海駅II，最平的「上車盤」折實後僅售賣290萬元，並於一周內收逾3.8萬票，為紀錄新高。</p>
                 </div>
 
-                <RightDeco right={-40} bottom={-80} />
-
+                <LeftDeco left={-40} />
+                <BottomDeco top={-80} />
             </motion.div>
 
             <HousePricePreSquareChart />
 
-            <motion.div className="w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="relative w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
                 transition={{duration: 1}}>
 
+                <TopRightDeco top={-80} right={-40} />
+                <TopLeftDeco top={-80} left={-40} />
                 <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
                     <p>新盤「劈價」固然吸引不少買家入市，但樓價仍然處於高位。中原地產資料顯示，截至今年九月底，有22個新盤開價發售，而其上車盤的價格落在約354至1431萬不等；按港島、九龍、新界東、新界西劃分，四區樓價中位數亦可差近一倍。而按照政府最新公佈香港25至34歲青年月入息中位數22200元計算，即使是購買最低價的單位，亦需要不吃不喝逾13年才能夠全款買入。</p>
                 </div>
@@ -248,11 +250,13 @@ export function Introduction(){
 
             <HouseSellingBarChart />
 
-            <motion.div className="w-full p-5 lg:w-4/5 mt-80 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="relative w-full p-5 lg:w-4/5 mt-80 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
                 transition={{duration: 1}}>
+
+                <TopRightDeco top={-80} right={-40} />
 
                 <motion.div id="caption3" className=" w-full pb-2 text-2xl lg:text-5xl flex flex-col justify-center items-center gap-5 font-semibold overflow-hidden whitespace-nowrap text-[#e5d19b]"
                     initial={{width: 0}}
@@ -263,7 +267,7 @@ export function Introduction(){
                     <p className=" font-light text-3xl">(以18區二手樓宇售價中位數計算)</p>
                 </motion.div>
 
-                <div className="w-full flex flex-col justify-center items-start bg-[#00000078] p-2">
+                <div className="relative w-full flex flex-col justify-center items-start bg-[#00000078] p-2">
                     <table className=" table-auto w-full">
                         <tbody>
                             <tr>
@@ -419,7 +423,7 @@ export function Introduction(){
                             </tr>
                         </tbody>
                     </table>
-
+                    <BottomLeftDeco bottom={-80} left={-80} />
                 </div>
 
                 <div className=" w-full flex justify-center items-center text-3xl">
@@ -442,38 +446,52 @@ export function Introduction(){
                         }}
                         >
                         查閱結果
+                        
                     </motion.div>
                 </div>
-
-                <div id="yearNeeded" className="relative mt-60">
+                
+                <div id="yearNeeded" className="mt-60" />
+                <div className="relative w-full flex justify-center items-center "
+                    style={{
+                        display: yearNeeded === null ? 'none' : 'flex'
+                    }}>
                     <TopLeftDeco top={0} left={-40}  />
+                    <TopRightDeco top={0} right={-40} />
                 </div>
 
-                <div className="flex justify-center items-center w-full h-fit mt-[25vh]">
+                <div className="flex justify-center items-center w-full h-fit"
+                    style={{
+                        display: yearNeeded === null ? '0px' : '25vh'
+                    }}>
 
                 {
                     yearNeeded === null ? <></> :
                     <div className="w-full h-full flex flex-col justify-center items-center gap-5">
                         
                         
-                        <div className=" w-full flex justify-center items-center gap-5 font-bold">
+                        <div className=" w-full flex justify-center items-center gap-5 font-bold text-center">
                                 <p className="text-9xl">~ {yearNeeded}</p>
                                 <p>年</p>
                         </div>
 
                         <BsFillHouseCheckFill />
-                        <p className=" text-justify text-5xl">你才能全款購買房屋</p>
+                        <p className=" text-center text-5xl">你才能全款購買房屋</p>
                     </div>
                 }
 
                 </div>
             </motion.div>
 
-            <div className=" relative w-full h-[50vh] flex justify-center items-center mt-5">
-                <LeftDeco top={0} />
+            <div className=" relative w-full h-screen justify-center items-center mt-10 mb-10"
+                style={{
+                    display: yearNeeded === null ? 'none' : 'flex'
+                }}>
+                <VerticalDeco top={0} />
+                <VerticalDeco top={270} />
+                <BottomDeco bottom={0} />
             </div>
 
-            <motion.div className="relative w-full p-5 lg:w-4/5 mt-60 mb-32 h-fit flex flex-col justify-center items-center text-justify text-xl gap-5 bg-gradient-to-t from-[#40404078] to-transparent"
+            <motion.div className="relative w-full p-5 lg:w-4/5 mb-32 h-fit flex flex-col justify-center items-center text-justify text-xl gap-5 bg-gradient-to-t from-[#40404078] to-transparent"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
@@ -493,7 +511,7 @@ export function Introduction(){
                 </div>
 
                 <BottomRightDeco bottom={-40} right={-80} />
-
+                <BottomLeftDeco bottom={-40} left={-80} />
             </motion.div>
 
             <HouseRantingBarChart />

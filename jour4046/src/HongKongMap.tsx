@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react"
-import { LeftDeco } from "./utils/LineDeco";
+import { LeftDeco, RightDeco } from "./utils/LineDeco";
 
 const pathVariants = {
     hidden: { 
@@ -72,8 +72,8 @@ export function HongKongMap(){
     return (
     <div className=" relative w-full p-5 lg:w-4/5 min-h-[30vh] h-fit flex flex-col justify-center items-start text-justify text-xl gap-5">
 
-        <LeftDeco />
-
+        <LeftDeco left={0} />
+        <RightDeco right={0} />
         <div className=" w-full h-fit flex flex-col justify-center items-center text-lg">
             <p>2023年全港新盤售價中位數)</p>
             <p>A類樓宇（40平方米/430呎以下）</p>
