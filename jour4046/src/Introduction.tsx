@@ -56,7 +56,7 @@ export function Introduction(){
                 <CanvasBlock id="intro-gl" canvasW={3000} canvasH={3000} />
             </div>
 
-            <div className=" fixed w-full h-screen z-50 flex flex-col justify-center items-end mr-5 pointer-events-none">
+            <div className=" fixed hidden md:flex w-full h-screen z-50 flex-col justify-center items-end mr-5 pointer-events-none">
 
                 {
                     topics.map((item, index) =>{
@@ -122,8 +122,8 @@ export function Introduction(){
 
                 <p>出版：2023-009-29</p>
 
-                <div className=" mt-5 w-full h-[50vh]">
-                    <img src="./images/headline.png" className=" cover" />
+                <div className=" mt-5 w-full h-fit">
+                    <img src="./images/headline.png" className=" contain" />
                 </div>
 
                 <p className="text-justify text-xl mt-10 bg-[#29262b7d]">受疫情和環球經濟不景氣影響，香港樓市從高峰回落，隨著美國持續加息亦令潛在買家卻步，私人住宅售價從疫情前的高位下跌近一成。但即使有不少新盤「劈價」出售，帶動二手樓價下跌，香港人依然面對買樓難、租樓貴的處境。</p>
