@@ -449,7 +449,7 @@ export function Introduction(){
                     <TopLeftDeco top={0} left={-40}  />
                 </div>
 
-                <div className="flex justify-center items-center w-full h-fit mt-[50vh]">
+                <div className="flex justify-center items-center w-full h-fit mt-[25vh]">
 
                 {
                     yearNeeded === null ? <></> :
