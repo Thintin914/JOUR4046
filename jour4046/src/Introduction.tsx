@@ -283,7 +283,7 @@ export function Introduction(){
                                                     animateToNumber={salary}
                                                     fontStyle={{ fontSize: 35 }}
                                                     locale="en-US"
-                                                    configs={[{"mass":1,"tension":517,"friction":59},{"mass":1,"tension":513,"friction":84},{"mass":1,"tension":515,"friction":60},{"mass":1,"tension":513,"friction":49}]}
+                                                    configs={[{"mass":1,"tension":1017,"friction":59},{"mass":1,"tension":1013,"friction":84},{"mass":1,"tension":515,"friction":60},{"mass":1,"tension":513,"friction":49}]}
                                                 ></AnimatedNumbers>
                                                 <p>HKD</p>
                                             </div>
@@ -350,7 +350,7 @@ export function Introduction(){
                                                     animateToNumber={salaryPercentage}
                                                     fontStyle={{ fontSize: 35 }}
                                                     locale="en-US"
-                                                    configs={[{"mass":1,"tension":140,"friction":126},{"mass":1,"tension":130,"friction":114},{"mass":1,"tension":150,"friction":112},{"mass":1,"tension":130,"friction":120}]}
+                                                    configs={[{"mass":1,"tension":817,"friction":59},{"mass":1,"tension":813,"friction":84},{"mass":1,"tension":815,"friction":60},{"mass":1,"tension":813,"friction":49}]}
                                                 ></AnimatedNumbers>
                                                 <p>%</p>
                                             </div>
