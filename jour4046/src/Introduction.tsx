@@ -56,7 +56,7 @@ export function Introduction(){
                 <CanvasBlock id="intro-gl" canvasW={3000} canvasH={3000} />
             </div>
 
-            <div className=" fixed hidden md:flex w-full h-screen z-50 flex-col justify-center items-end mr-5 pointer-events-none">
+            <div className=" fixed hidden md:flex w-full h-screen z-50 flex-col justify-start items-end mr-5 mt-5 pointer-events-none">
 
                 {
                     topics.map((item, index) =>{
