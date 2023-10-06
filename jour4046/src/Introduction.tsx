@@ -18,7 +18,6 @@ const topics: string[] = [
     'caption4',
     'caption5',
     'caption6',
-    'caption7'
 ]
 
 export function Introduction(){
