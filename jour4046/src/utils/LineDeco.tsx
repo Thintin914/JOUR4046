@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
 
 
 const pathVariants = {
@@ -18,9 +19,8 @@ const pathVariants = {
 
 export function TopLeftDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
 
-
     return (
-        <div className="absolute overflow-hidden"
+        <div className="absolute overflow-hidden oveflow-hidden"
         style={{
             top: props.top,
             left: props.left,
@@ -90,7 +90,7 @@ export function RightDeco(props: {top?: number, left?: number, bottom?: number, 
 }
 
 export function LeftDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
-
+    
     return (
         <div className="absolute overflow-hidden"
             style={{

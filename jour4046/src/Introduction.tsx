@@ -10,7 +10,7 @@ import { HongKongMap } from "./HongKongMap";
 import AnimatedNumbers from "react-animated-numbers";
 import {BsCash, BsCashCoin, BsFillHouseCheckFill} from 'react-icons/bs'
 import { HouseRantingBarChart } from "./HousingRantingBarChart";
-import { BottomDeco, BottomRightDeco, RightDeco, TopLeftDeco } from "./utils/LineDeco";
+import { BottomDeco, BottomRightDeco, LeftDeco, RightDeco, TopLeftDeco } from "./utils/LineDeco";
 
 const topics: string[] = [
     'caption1',
@@ -61,6 +61,7 @@ export function Introduction(){
             t.style.whiteSpace = ''
         };
         f();
+
     }, [])
 
     useEffect(() =>{
@@ -72,7 +73,7 @@ export function Introduction(){
     }, [salaryPercentage])
 
     return (
-        <div className=" relative flex flex-col justify-start items-center w-full h-fit text-white tracking-tight">
+        <div className=" overflow-hidden relative flex flex-col justify-start items-center w-full h-fit text-white tracking-tight">
 
             <div className=" fixed w-full h-screen -z-50">
                 <CanvasBlock id="intro-gl" canvasW={3000} canvasH={3000} />
@@ -169,30 +170,30 @@ export function Introduction(){
 
             </motion.div>
 
-            <motion.div className="w-full p-5 mt-80 lg:w-4/5 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="relative w-full p-5 lg:w-4/5 mt-20 mb-32 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
                 transition={{duration: 1}}>
 
-                <div id="caption1" className="relative w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                <TopLeftDeco top={-80} left={-40}/>
 
-                    <TopLeftDeco top={-80} left={-40} />
+                <motion.div id="caption1" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
+                    initial={{width: 0}}
+                    whileInView={{width: '100%'}}
+                    transition={{duration: 2, ease: "easeInOut"}}
+                    viewport={{once: true}}>
+                            
+                    <p className=" font-semibold text-[#e5d19b]">樓價從高峰滑落 加息未完難回升</p>
+                </motion.div>
 
-                    <div className="w-full h-fit flex flex-col justify-center items-start text-justify text-xl gap-5">
-                        <motion.div className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
-                            initial={{width: 0}}
-                            whileInView={{width: '100%'}}
-                            transition={{duration: 2, ease: "easeInOut"}}
-                            viewport={{once: true}}>
-                                    
-                            <p className=" font-semibold text-[#e5d19b]">樓價從高峰滑落 加息未完難回升</p>
-                        </motion.div>
-                    </div>
-
-                    <p>香港樓價冠絕全球，多次成為全球樓價最難負擔城市。而根據差餉物業估價署（差估署）公佈的樓價指數，香港樓價至2003年沙士後不斷飆升，由2003年的61.6到2019年的383.0的高位，於17年間升逾4.2倍。</p>
+                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                <p>香港樓價冠絕全球，多次成為全球樓價最難負擔城市。而根據差餉物業估價署（差估署）公佈的樓價指數，香港樓價至2003年沙士後不斷飆升，由2003年的61.6到2019年的383.0的高位，於17年間升逾4.2倍。</p>
                     <p>但疫情爆發、利率上升加上環球經濟增長放緩，令香港樓價開始下跌。根據瑞銀公佈的全球房地產泡沫指數，今年是香港自2015年報告發表以來首次跌出「泡沫風險」的區間；而疫情爆發對房地產市場帶來的影響，在中港通關後亦未能完全抵消，匯豐更「轉軚」，看淡香港樓市，預料明年樓市會下跌5%。</p>
                 </div>
+
+                <RightDeco right={-40} bottom={-80} />
+
             </motion.div>
 
             <motion.div className="relative w-full p-5 lg:w-4/5 mt-20 mb-32 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
@@ -445,11 +446,14 @@ export function Introduction(){
                 </div>
 
                 <div id="yearNeeded" className="relative mt-60">
-                    <TopLeftDeco top={0} left={-40} />
+                    <TopLeftDeco top={0} left={-40}  />
                 </div>
+
+                <div className="flex justify-center items-center w-full h-fit mt-[50vh]">
+
                 {
                     yearNeeded === null ? <></> :
-                    <div className="w-full h-screen flex flex-col justify-center items-center gap-5">
+                    <div className="w-full h-full flex flex-col justify-center items-center gap-5">
                         
                         
                         <div className=" w-full flex justify-center items-center gap-5 font-bold">
@@ -462,9 +466,14 @@ export function Introduction(){
                     </div>
                 }
 
+                </div>
             </motion.div>
 
-            <motion.div className="relative w-full p-5 lg:w-4/5 mt-60 mb-32 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5 bg-gradient-to-t from-[#40404078] to-transparent"
+            <div className=" relative w-full h-[50vh] flex justify-center items-center mt-5">
+                <LeftDeco top={0} />
+            </div>
+
+            <motion.div className="relative w-full p-5 lg:w-4/5 mt-60 mb-32 h-fit flex flex-col justify-center items-center text-justify text-xl gap-5 bg-gradient-to-t from-[#40404078] to-transparent"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
