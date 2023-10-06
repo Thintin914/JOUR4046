@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
 import { CustomTooltip } from "./HousePricePreSquareChart";
+import { BottomDeco } from "./utils/LineDeco";
 
 export const houseSellingData = [
     {
@@ -104,7 +105,9 @@ export function HouseSellingBarChart(){
     }, [])
 
     return (
-        <div className=" mt-10 w-full h-fit flex flex-col lg:flex-row justify-center items-center bg-[#00000078]">
+        <div className=" relative mt-10 w-full h-fit flex flex-col lg:flex-row justify-center items-center bg-[#00000078]">
+
+        <BottomDeco bottom={ -80} />
 
         <div className=" flex flex-col justify-center items-center text-lg">
             <p> 全港18區二手樓宇售價中位數 (萬)</p>

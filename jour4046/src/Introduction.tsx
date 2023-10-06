@@ -10,6 +10,7 @@ import { HongKongMap } from "./HongKongMap";
 import AnimatedNumbers from "react-animated-numbers";
 import {BsCash, BsCashCoin, BsFillHouseCheckFill} from 'react-icons/bs'
 import { HouseRantingBarChart } from "./HousingRantingBarChart";
+import { BottomDeco, BottomRightDeco, RightDeco, TopLeftDeco } from "./utils/LineDeco";
 
 const topics: string[] = [
     'caption1',
@@ -174,7 +175,9 @@ export function Introduction(){
                 viewport={{once: true}}
                 transition={{duration: 1}}>
 
-                <div id="caption1" className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                <div id="caption1" className="relative w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+
+                    <TopLeftDeco top={-80} left={-40} />
 
                     <div className="w-full h-fit flex flex-col justify-center items-start text-justify text-xl gap-5">
                         <motion.div className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
@@ -192,7 +195,7 @@ export function Introduction(){
                 </div>
             </motion.div>
 
-            <motion.div className="w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="relative w-full p-5 lg:w-4/5 mt-20 mb-32 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
@@ -211,6 +214,9 @@ export function Introduction(){
                     <p>儘管香港樓價有下跌的跡象，但對比其他城市依然高昂。 以單位面積小於430呎的「上車盤」為例，據差估署資料顯示，此類型單位於疫情期間依然價格高企，2021年全年樓價指數更是歷年最高位。雖然現在從高位回落近一成七，但對於年輕人而言仍是頗大的負擔。</p>
                     <p>在聯繫匯率的制度下，香港跟隨美聯儲加息步伐，按揭利息上升，令買家入市意欲下降。市道淡靜下，不少新盤「劈價」出售，吸引買家入市。其中8月開售、由長實發展的油塘親海駅II，最平的「上車盤」折實後僅售賣290萬元，並於一周內收逾3.8萬票，為紀錄新高。</p>
                 </div>
+
+                <RightDeco right={-40} bottom={-80} />
+
             </motion.div>
 
             <HousePricePreSquareChart />
@@ -228,14 +234,14 @@ export function Introduction(){
 
             <HongKongMap />
 
-            <motion.div className="w-full p-5 lg:w-4/5 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className=" w-full p-5 lg:w-4/5 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
                 transition={{duration: 1}}>
 
                 <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
-                <p>新盤價格戰亦帶動二手樓樓價下跌，業主紛紛蝕讓希望可以搶佔市場。儘管如此，二手樓樓價仍不比新盤低。按照香港十八區劃分、據中原地產近一個月的成交整合，各區二手樓價格中位數落在約353至577萬不等，僅有四區二手樓售價中位數貼近新盤最低售價，即使是指月入約2.22萬元的人仍需要不吃不喝逾13年才能夠全款買入，可見即使數據顯示「上車盤」的價格回落近一成七，但在港買樓對於年青人而言仍是高不可攀。</p>
+                    <p>新盤價格戰亦帶動二手樓樓價下跌，業主紛紛蝕讓希望可以搶佔市場。儘管如此，二手樓樓價仍不比新盤低。按照香港十八區劃分、據中原地產近一個月的成交整合，各區二手樓價格中位數落在約353至577萬不等，僅有四區二手樓售價中位數貼近新盤最低售價，即使是指月入約2.22萬元的人仍需要不吃不喝逾13年才能夠全款買入，可見即使數據顯示「上車盤」的價格回落近一成七，但在港買樓對於年青人而言仍是高不可攀。</p>
                 </div>
             </motion.div>
 
@@ -438,10 +444,14 @@ export function Introduction(){
                     </motion.div>
                 </div>
 
-                <div id="yearNeeded" className="mt-60"></div>
+                <div id="yearNeeded" className="relative mt-60">
+                    <TopLeftDeco top={0} left={-40} />
+                </div>
                 {
                     yearNeeded === null ? <></> :
                     <div className="w-full h-screen flex flex-col justify-center items-center gap-5">
+                        
+                        
                         <div className=" w-full flex justify-center items-center gap-5 font-bold">
                                 <p className="text-9xl">~ {yearNeeded}</p>
                                 <p>年</p>
@@ -454,7 +464,7 @@ export function Introduction(){
 
             </motion.div>
 
-            <motion.div className="w-full p-5 lg:w-4/5 mt-60 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5 bg-gradient-to-t from-[#40404078] to-transparent"
+            <motion.div className="relative w-full p-5 lg:w-4/5 mt-60 mb-32 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5 bg-gradient-to-t from-[#40404078] to-transparent"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
@@ -472,6 +482,9 @@ export function Introduction(){
                     <p>息口向上令樓宇買賣市場轉趨淡靜，租賃市場卻受益。據差估署公佈最新私宅租金指數報185.4點，按月升1.42%，創逾3年半新高，今年首8個月累計升幅達5.64%。430呎或以下的單位租金指數更重上200點，回到2019年的水平。</p>
                     <p>市場上越來越多人「轉買為租」，而在沒有能力買樓的情況下，當租金水平持續上升，令港人居住問題越趨嚴竣。瑞士商学院工商管理博士關啟正指，租金應該是薪金約3成才可以稱為可負擔的，即是指月收入為2.22萬，租金應該要低於6600元才是合理的。但按中原物業9月的租務成交統計，香港十八區的租金中位數約是1.05至1.88萬不等，即使是租住位於新界最便宜的單位，亦要價月收入的逾四成，而港島區的「黃金地段」便需要月收入逾5.3萬才能夠負擔得起。</p>
                 </div>
+
+                <BottomRightDeco bottom={-40} right={-80} />
+
             </motion.div>
 
             <HouseRantingBarChart />
