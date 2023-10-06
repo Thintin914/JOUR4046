@@ -19,7 +19,7 @@ const pathVariants = {
 export function TopLeftDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
 
     return (
-        <div className="absolute overflow-hidden oveflow-hidden"
+        <div className="absolute overflow-hidden oveflow-hidden pointer-events-none -z-20"
         style={{
             top: props.top,
             left: props.left,
@@ -48,7 +48,7 @@ export function TopLeftDeco(props: {top?: number, left?: number, bottom?: number
 export function BottomRightDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
 
     return (
-        <div className="absolute overflow-hidden"
+        <div className="absolute overflow-hidden pointer-events-none -z-20"
             style={{
                 top: props.top,
                 left: props.left,
@@ -77,7 +77,7 @@ export function BottomRightDeco(props: {top?: number, left?: number, bottom?: nu
 export function RightDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
 
     return (
-        <div className="absolute overflow-hidden"
+        <div className="absolute overflow-hidden pointer-events-none -z-20"
             style={{
                 top: props.top,
                 left: props.left,
@@ -99,7 +99,7 @@ export function RightDeco(props: {top?: number, left?: number, bottom?: number, 
 export function LeftDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
     
     return (
-        <div className="absolute overflow-hidden"
+        <div className="absolute overflow-hidden pointer-events-none -z-20"
             style={{
                 top: props.top,
                 left: props.left,
@@ -121,7 +121,7 @@ export function LeftDeco(props: {top?: number, left?: number, bottom?: number, r
 export function BottomDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
 
     return (
-        <div className="absolute overflow-hidden"
+        <div className="absolute overflow-hidden pointer-events-none -z-20"
             style={{
                 top: props.top,
                 left: props.left,
@@ -145,7 +145,7 @@ export function BottomDeco(props: {top?: number, left?: number, bottom?: number,
 export function TopRightDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
 
     return (
-        <div className="absolute overflow-hidden"
+        <div className="absolute overflow-hidden pointer-events-none -z-20"
             style={{
                 top: props.top,
                 left: props.left,
@@ -167,7 +167,7 @@ export function TopRightDeco(props: {top?: number, left?: number, bottom?: numbe
 export function BottomLeftDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
 
     return (
-        <div className="absolute overflow-hidden"
+        <div className="absolute overflow-hidden pointer-events-none -z-20"
             style={{
                 top: props.top,
                 left: props.left,
@@ -189,7 +189,7 @@ export function BottomLeftDeco(props: {top?: number, left?: number, bottom?: num
 export function VerticalDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
 
     return (
-        <div className="absolute overflow-hidden"
+        <div className="absolute overflow-hidden pointer-events-none -z-20"
             style={{
                 top: props.top,
                 left: props.left,
