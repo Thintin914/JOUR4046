@@ -20,7 +20,7 @@ export function TopLeftDeco(props: {top?: number, left?: number, bottom?: number
 
 
     return (
-        <div className="absolute"
+        <div className="absolute overflow-hidden"
         style={{
             top: props.top,
             left: props.left,
@@ -44,7 +44,7 @@ export function TopLeftDeco(props: {top?: number, left?: number, bottom?: number
 export function BottomRightDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
 
     return (
-        <div className="absolute"
+        <div className="absolute overflow-hidden"
             style={{
                 top: props.top,
                 left: props.left,
@@ -69,7 +69,7 @@ export function BottomRightDeco(props: {top?: number, left?: number, bottom?: nu
 export function RightDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
 
     return (
-        <div className="absolute"
+        <div className="absolute overflow-hidden"
             style={{
                 top: props.top,
                 left: props.left,
@@ -92,7 +92,7 @@ export function RightDeco(props: {top?: number, left?: number, bottom?: number, 
 export function LeftDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
 
     return (
-        <div className="absolute"
+        <div className="absolute overflow-hidden"
             style={{
                 top: props.top,
                 left: props.left,
@@ -115,7 +115,7 @@ export function LeftDeco(props: {top?: number, left?: number, bottom?: number, r
 export function BottomDeco(props: {top?: number, left?: number, bottom?: number, right?: number}){
 
     return (
-        <div className="absolute"
+        <div className="absolute overflow-hidden"
             style={{
                 top: props.top,
                 left: props.left,
