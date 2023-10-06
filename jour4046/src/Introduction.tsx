@@ -96,7 +96,7 @@ export function Introduction(){
                     initial={{width: 0}}
                     animate={{width: '100%'}}
                     transition={{duration: 2, delay: 2, ease: "easeInOut"}}>
-                    <p>樓市解密：樓價放緩是否最佳入市時機？</p>
+                    <p>租金樓價仍然高企 青年「上車」遙遙無期</p>
                 </motion.div>
 
                 <div className="relative w-full h-fit flex flex-row justify-start items-center pr-24 mt-10 mb-5 gap-5">
@@ -129,7 +129,7 @@ export function Introduction(){
                     <img src="./images/black-wave-bg.jpg" className=" cover" />
                 </div>
 
-                <p className="text-justify text-xl mt-10 bg-[#29262b7d]">受疫情和環球經濟不景氣影響，香港樓市從高峰回落，隨著美國持續加息亦令潛在買家卻步，私人住宅售價從疫情前的高位下跌近一成；而政府一再放寬按揭成數和住宅樓花按揭，加上近期不少新盤「劈價」出售，希望吸引買家入市。</p>
+                <p className="text-justify text-xl mt-10 bg-[#29262b7d]">受疫情和環球經濟不景氣影響，香港樓市從高峰回落，隨著美國持續加息亦令潛在買家卻步，私人住宅售價從疫情前的高位下跌近一成。但即使有不少新盤「劈價」出售，帶動二手樓價下跌，香港人依然面對買樓難、租樓貴的處境。</p>
 
                 <div className=" w-full h-fit flex justify-center items-center mt-10">
                     
@@ -159,7 +159,7 @@ export function Introduction(){
                             transition={{duration: 2, ease: "easeInOut"}}
                             viewport={{once: true}}>
                                     
-                            <p>Content: The average price by district</p>
+                            <p>樓價從高峰滑落 加息未完難回升</p>
                         </motion.div>
                     </div>
 
@@ -180,11 +180,12 @@ export function Introduction(){
                     transition={{duration: 2, ease: "easeInOut"}}
                     viewport={{once: true}}>
                             
-                    <p>Content: The average price by district</p>
+                    <p>「上車盤」雖劈價出售 惟買樓仍遙不可及</p>
                 </motion.div>
 
                 <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
                     <p>儘管香港樓價有下跌的跡象，但對比其他城市依然高昂。 以單位面積小於430呎的「上車盤」為例，據差估署資料顯示，此類型單位於疫情期間依然價格高企，2021年全年樓價指數更是歷年最高位。雖然現在從高位回落近一成七，但對於年輕人而言仍是頗大的負擔。</p>
+                    <p>在聯繫匯率的制度下，香港跟隨美聯儲加息步伐，按揭利息上升，令買家入市意欲下降。市道淡靜下，不少新盤「劈價」出售，吸引買家入市。其中8月開售、由長實發展的油塘親海駅II，最平的「上車盤」折實後僅售賣290萬元，並於一周內收逾3.8萬票，為紀錄新高。</p>
                 </div>
             </motion.div>
 
@@ -201,7 +202,7 @@ export function Introduction(){
                     whileInView={{width: '100%'}}
                     transition={{duration: 2, ease: "easeInOut"}}
                     viewport={{once: true}}>
-                    <p>Content: The price level of different types of house</p>
+                    <p>租金重回疫前水平 港島地段直逼兩萬</p>
                 </motion.div>
 
                 <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
@@ -223,7 +224,7 @@ export function Introduction(){
                     whileInView={{width: '100%'}}
                     transition={{duration: 2, ease: "easeInOut"}}
                     viewport={{once: true}}>
-                    <p>Content: Interview & Gov. Policy on property market & Ending</p>
+                    <p>「上車盤」雖劈價出售 惟買樓仍遙不可及 </p>
                 </motion.div>
 
                 <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
@@ -458,34 +459,16 @@ export function Introduction(){
                     whileInView={{width: '100%'}}
                     transition={{duration: 2, ease: "easeInOut"}}
                     viewport={{once: true}}>
-                    <p>Content: Interview & Gov. Policy on property market & Ending</p>
+                    <p>租金重回疫前水平 港島地段直逼兩萬</p>
                 </motion.div>
 
                 <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
                     <p>息口向上令樓宇買賣市場轉趨淡靜，租賃市場卻受益。據差估署公佈最新私宅租金指數報185.4點，按月升1.42%，創逾3年半新高，今年首8個月累計升幅達5.64%。430呎或以下的單位租金指數更重上200點，回到2019年的水平。</p>
+                    <p>市場上越來越多人「轉買為租」，而在沒有能力買樓的情況下，當租金水平持續上升，令港人居住問題越趨嚴竣。香港浸會大學工商管理學院副院長文國樑指，租金應該是薪金約X成才可以稱為可負擔的，即是指月收入為2.22萬，租金應該要低放X元是合理的。而按中原物業9月的租務成交統計，香港十八區的租金中位數約是1.05至1.88萬不等，即使是租住位於新界最便宜的單位，亦要價月收入的逾四成，而港島區的「黃金地段」便需要月收入逾5.3萬才能夠負擔得起。</p>
                 </div>
             </motion.div>
 
             <HouseRantingBarChart />
-
-            <motion.div className="w-full p-5 lg:w-4/5 mt-20 mb-52 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
-                initial={{opacity: 0}}
-                whileInView={{opacity: 1}}
-                viewport={{once: true}}
-                transition={{duration: 1}}>
-
-                <motion.div id="caption7" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
-                    initial={{width: 0}}
-                    whileInView={{width: '100%'}}
-                    transition={{duration: 2, ease: "easeInOut"}}
-                    viewport={{once: true}}>
-                    <p>Content: Interview & Gov. Policy on property market & Ending</p>
-                </motion.div>
-
-                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
-                    <p>市場上越來越多人「轉買為租」，而在沒有能力買樓的情況下，當租金水平持續上升，令港人居住問題越趨嚴竣。香港浸會大學工商管理學院副院長文國樑指，租金應該是薪金約X成才可以稱為可負擔的，即是指月收入為2.22萬，租金應該要低放X元是合理的。而按中原物業9月的租務成交統計，香港十八區的租金中位數約是1.05至1.88萬不等，即使是租住位於新界最便宜的單位，亦要價月收入的逾四成，而港島區的「黃金地段」便需要月收入逾5.3萬才能夠負擔得起。</p>
-                </div>
-            </motion.div>
 
         </div>
     )
