@@ -203,7 +203,7 @@ export function HousePricePreSquareChart(){
 
         <div className=" w-full overflow-x-scroll whitespace-nowrap flex flex-row justify-start items-center gap-5">
 
-            <div className=" flex flex-col justify-center items-center">
+            <div className=" flex flex-col justify-center items-center text-lg">
                 <p> 2019 - 2023年8月樓宇租金及售價指數</p>
                 <p>A類樓宇 (40平方米/ 430呎以下)</p>
 

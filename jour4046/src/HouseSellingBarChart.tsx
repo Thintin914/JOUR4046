@@ -106,7 +106,7 @@ export function HouseSellingBarChart(){
     return (
         <div className=" mt-10 w-full h-fit flex flex-col lg:flex-row justify-center items-center bg-[#00000078]">
 
-        <div className=" flex flex-col justify-center items-center">
+        <div className=" flex flex-col justify-center items-center text-lg">
             <p> 全港18區二手樓宇售價中位數 (萬)</p>
             <p>A類樓宇 (40平方米/ 430呎以下)</p>
 

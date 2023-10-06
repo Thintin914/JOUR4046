@@ -26,7 +26,7 @@ data['NTW'] = {
     details: {
         median: {
             title: '$',
-            value: '$407.5 萬'
+            value: '407.5 萬'
         }
     }
 };
@@ -69,9 +69,9 @@ export function HongKongMap(){
     const [district, setDistrict] = useState<string>('HKI');
 
     return (
-    <div className=" relative w-full p-5 lg:w-4/5 min-h-[50vh] h-fit flex flex-col justify-center items-start text-justify text-xl gap-5">
+    <div className=" relative w-full p-5 lg:w-4/5 min-h-[30vh] h-fit flex flex-col justify-center items-start text-justify text-xl gap-5">
 
-        <div className=" w-full h-fit flex flex-col justify-center items-center">
+        <div className=" w-full h-fit flex flex-col justify-center items-center text-lg">
             <p>2023年全港新盤售價中位數)</p>
             <p>A類樓宇（40平方米/430呎以下）</p>
         </div>
@@ -79,6 +79,9 @@ export function HongKongMap(){
         <div className=" w-full h-full flex justify-center items-center pt-10 overflow-hidden">
 
             <motion.svg
+                style={{
+                    scale: 0.8
+                }}
             initial="hidden"
             whileInView="visible"
             viewport={{once: true}}

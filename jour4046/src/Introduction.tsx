@@ -16,8 +16,6 @@ const topics: string[] = [
     'caption2',
     'caption3',
     'caption4',
-    'caption5',
-    'caption6',
 ]
 
 export function Introduction(){
@@ -82,7 +80,7 @@ export function Introduction(){
 
             </div>
 
-            <motion.div className=" w-full p-5 lg:w-4/5 mt-10 h-fit flex flex-col justify-center items-start"
+            <motion.div className=" w-full p-5 lg:w-4/5 mt-10 h-fit flex flex-col justify-center items-start bg-gradient-to-b from-[#00000098] to-transparent"
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 transition={{duration: 1, delay: 1}}>
@@ -100,22 +98,22 @@ export function Introduction(){
 
                 <div className="relative w-full h-fit flex flex-row justify-start items-center pr-24 mt-10 mb-5 gap-5">
 
-                    <p>撰文：張智芬，朱樂怡，胡朗霆，Vincent</p>
+                    <p>撰文：張智芬，朱樂怡，胡朗霆，陳培威</p>
 
                     <div className=" w-fit h-fit flex flex-row justify-center items-center">
-                        <div className=" w-10 h-10 border-[2px] border-white bg-gray-400 rounded-full flex justify-center items-center absolute right-[75px]">
+                        <div className=" w-10 h-10 border-[2px] border-white bg-gray-700 rounded-full flex justify-center items-center absolute right-[75px]">
                             <p>F</p>
                         </div>
 
-                        <div className=" w-10 h-10 border-[2px] border-white bg-gray-400 rounded-full flex justify-center items-center absolute right-[50px]">
+                        <div className=" w-10 h-10 border-[2px] border-white bg-gray-700 rounded-full flex justify-center items-center absolute right-[50px]">
                             <p>J</p>
                         </div>
 
-                        <div className=" w-10 h-10 border-[2px] border-white bg-gray-400 rounded-full flex justify-center items-center absolute right-[25px]">
+                        <div className=" w-10 h-10 border-[2px] border-white bg-gray-700 rounded-full flex justify-center items-center absolute right-[25px]">
                             <p>J</p>
                         </div>
 
-                        <div className=" w-10 h-10 border-[2px] border-white bg-gray-400 rounded-full flex justify-center items-center absolute right-[0px]">
+                        <div className=" w-10 h-10 border-[2px] border-white bg-gray-700 rounded-full flex justify-center items-center absolute right-[0px]">
                             <p>V</p>
                         </div>
                     </div>
@@ -125,7 +123,7 @@ export function Introduction(){
                 <p>出版：2023-009-29</p>
 
                 <div className=" mt-5 w-full h-[50vh]">
-                    <img src="./images/black-wave-bg.jpg" className=" cover" />
+                    <img src="./images/headline.png" className=" cover" />
                 </div>
 
                 <p className="text-justify text-xl mt-10 bg-[#29262b7d]">受疫情和環球經濟不景氣影響，香港樓市從高峰回落，隨著美國持續加息亦令潛在買家卻步，私人住宅售價從疫情前的高位下跌近一成。但即使有不少新盤「劈價」出售，帶動二手樓價下跌，香港人依然面對買樓難、租樓貴的處境。</p>
@@ -158,7 +156,7 @@ export function Introduction(){
                             transition={{duration: 2, ease: "easeInOut"}}
                             viewport={{once: true}}>
                                     
-                            <p>樓價從高峰滑落 加息未完難回升</p>
+                            <p className=" font-semibold">樓價從高峰滑落 加息未完難回升</p>
                         </motion.div>
                     </div>
 
@@ -179,7 +177,7 @@ export function Introduction(){
                     transition={{duration: 2, ease: "easeInOut"}}
                     viewport={{once: true}}>
                             
-                    <p>「上車盤」雖劈價出售 惟買樓仍遙不可及</p>
+                    <p className=" font-semibold">「上車盤」雖劈價出售 惟買樓仍遙不可及</p>
                 </motion.div>
 
                 <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
@@ -196,55 +194,38 @@ export function Introduction(){
                 viewport={{once: true}}
                 transition={{duration: 1}}>
 
-                <motion.div id="caption3" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
-                    initial={{width: 0}}
-                    whileInView={{width: '100%'}}
-                    transition={{duration: 2, ease: "easeInOut"}}
-                    viewport={{once: true}}>
-                    <p>租金重回疫前水平 港島地段直逼兩萬</p>
-                </motion.div>
-
                 <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
-                    <p>在聯繫匯率的制度下，香港跟隨美聯儲加息步伐，按揭利息上升，令買家入市意欲下降。市道淡靜下，不少新盤「劈價」出售，吸引買家入市。其中8月開售、由長實發展的油塘親海駅II，最平的「上車盤」折實後僅售賣290萬元，並於一周內收逾3.8萬票，為紀錄新高。</p>
                     <p>新盤「劈價」固然吸引不少買家入市，但樓價仍然處於高位。中原地產資料顯示，截至今年九月底，有22個新盤開價發售，而其上車盤的價格落在約354至1431萬不等；按港島、九龍、新界東、新界西劃分，四區樓價中位數亦可差近一倍。而按照政府最新公佈香港25至34歲青年月入息中位數22200元計算，即使是購買最低價的單位，亦需要不吃不喝逾13年才能夠全款買入。</p>
                 </div>
             </motion.div>
 
             <HongKongMap />
 
-            <motion.div className="w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="w-full p-5 lg:w-4/5 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
                 transition={{duration: 1}}>
 
-                <motion.div id="caption4" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
-                    initial={{width: 0}}
-                    whileInView={{width: '100%'}}
-                    transition={{duration: 2, ease: "easeInOut"}}
-                    viewport={{once: true}}>
-                    <p>「上車盤」雖劈價出售 惟買樓仍遙不可及 </p>
-                </motion.div>
-
                 <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
-                    <p>新盤價格戰亦帶動二手樓樓價下跌，業主紛紛蝕讓希望可以搶佔市場。儘管如此，二手樓樓價仍不比新盤低。按照香港十八區劃分、據中原地產近一個月的成交整合，各區二手樓價格中位數落在約353至577萬不等，僅有四區二手樓售價中位數貼近新盤最低售價，即使是指月入約2.22萬元的人仍需要不吃不喝逾13年才能夠全款買入，可見即使數據顯示「上車盤」的價格回落近一成七，但在港買樓對於年青人而言仍是高不可攀。</p>
+                <p>新盤價格戰亦帶動二手樓樓價下跌，業主紛紛蝕讓希望可以搶佔市場。儘管如此，二手樓樓價仍不比新盤低。按照香港十八區劃分、據中原地產近一個月的成交整合，各區二手樓價格中位數落在約353至577萬不等，僅有四區二手樓售價中位數貼近新盤最低售價，即使是指月入約2.22萬元的人仍需要不吃不喝逾13年才能夠全款買入，可見即使數據顯示「上車盤」的價格回落近一成七，但在港買樓對於年青人而言仍是高不可攀。</p>
                 </div>
             </motion.div>
 
             <HouseSellingBarChart />
 
-            <motion.div className="w-full p-5 lg:w-4/5 mt-20 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="w-full p-5 lg:w-4/5 mt-80 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
                 transition={{duration: 1}}>
 
-                <motion.div id="caption5" className=" w-full pb-2 text-2xl lg:text-5xl flex flex-col justify-center items-center gap-5 font-semibold overflow-hidden whitespace-nowrap"
+                <motion.div id="caption3" className=" w-full pb-2 text-2xl lg:text-5xl flex flex-col justify-center items-center gap-5 font-semibold overflow-hidden whitespace-nowrap text-[#f6d766]"
                     initial={{width: 0}}
                     whileInView={{width: '100%'}}
                     transition={{duration: 2, ease: "easeInOut"}}
                     viewport={{once: true}}>
-                    <p>你的月收入何時才能全款買樓？</p>
+                    <p>根據你的月收入何時才能全款買樓？</p>
                     <p className=" font-light text-3xl">(以18區二手樓宇售價中位數計算)</p>
                 </motion.div>
 
@@ -253,7 +234,7 @@ export function Introduction(){
                         <tbody>
                             <tr>
                                 <td>
-                                    <p>選擇置業地區：</p>
+                                    <p className="text-[#f6d766]">選擇置業地區：</p>
                                 </td>
                                 <td>
                                     <select ref={districtInputField} className=" w-[50vw] p-2 bg-[#414141]">
@@ -269,7 +250,7 @@ export function Introduction(){
                             </tr>
                             <tr>
                                 <td>
-                                    <p>輸入你的每月收入：</p>
+                                    <p className="text-[#f6d766]">輸入你的每月收入：</p>
                                 </td>
                                 <td>
                                     <div className=" flex justify-start items-center">
@@ -302,7 +283,7 @@ export function Introduction(){
                                                     animateToNumber={salary}
                                                     fontStyle={{ fontSize: 35 }}
                                                     locale="en-US"
-                                                    configs={[{"mass":1,"tension":140,"friction":126},{"mass":1,"tension":130,"friction":114},{"mass":1,"tension":150,"friction":112},{"mass":1,"tension":130,"friction":120}]}
+                                                    configs={[{"mass":1,"tension":517,"friction":59},{"mass":1,"tension":513,"friction":84},{"mass":1,"tension":515,"friction":60},{"mass":1,"tension":513,"friction":49}]}
                                                 ></AnimatedNumbers>
                                                 <p>HKD</p>
                                             </div>
@@ -336,7 +317,7 @@ export function Introduction(){
                             </tr>
                             <tr>
                                 <td>
-                                    <p>選擇你每月存款比例：</p>
+                                    <p className="text-[#f6d766]">選擇你每月存款比例：</p>
                                 </td>
                                 <td>
                                 <div className=" flex justify-start items-center">
@@ -447,23 +428,23 @@ export function Introduction(){
 
             </motion.div>
 
-            <motion.div className="w-full p-5 lg:w-4/5 mt-60 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5"
+            <motion.div className="w-full p-5 lg:w-4/5 mt-60 h-fit flex flex-col justify-center items-start text-justify text-xl gap-5 bg-gradient-to-t from-[#40404078] to-transparent"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
                 transition={{duration: 1}}>
 
-                <motion.div id="caption6" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
+                <motion.div id="caption4" className=" pb-2 text-2xl lg:text-5xl overflow-hidden whitespace-nowrap"
                     initial={{width: 0}}
                     whileInView={{width: '100%'}}
                     transition={{duration: 2, ease: "easeInOut"}}
                     viewport={{once: true}}>
-                    <p>租金重回疫前水平 港島地段直逼兩萬</p>
+                    <p className=" font-semibold">租金重回疫前水平 港島地段直逼兩萬</p>
                 </motion.div>
 
-                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                <div className=" w-fit h-fit flex flex-col justify-center items-center gap-10">
                     <p>息口向上令樓宇買賣市場轉趨淡靜，租賃市場卻受益。據差估署公佈最新私宅租金指數報185.4點，按月升1.42%，創逾3年半新高，今年首8個月累計升幅達5.64%。430呎或以下的單位租金指數更重上200點，回到2019年的水平。</p>
-                    <p>市場上越來越多人「轉買為租」，而在沒有能力買樓的情況下，當租金水平持續上升，令港人居住問題越趨嚴竣。香港浸會大學工商管理學院副院長文國樑指，租金應該是薪金約X成才可以稱為可負擔的，即是指月收入為2.22萬，租金應該要低放X元是合理的。而按中原物業9月的租務成交統計，香港十八區的租金中位數約是1.05至1.88萬不等，即使是租住位於新界最便宜的單位，亦要價月收入的逾四成，而港島區的「黃金地段」便需要月收入逾5.3萬才能夠負擔得起。</p>
+                    <p>市場上越來越多人「轉買為租」，而在沒有能力買樓的情況下，當租金水平持續上升，令港人居住問題越趨嚴竣。瑞士商学院工商管理博士關啟正指，租金應該是薪金約3成才可以稱為可負擔的，即是指月收入為2.22萬，租金應該要低於6600元才是合理的。但按中原物業9月的租務成交統計，香港十八區的租金中位數約是1.05至1.88萬不等，即使是租住位於新界最便宜的單位，亦要價月收入的逾四成，而港島區的「黃金地段」便需要月收入逾5.3萬才能夠負擔得起。</p>
                 </div>
             </motion.div>
 
