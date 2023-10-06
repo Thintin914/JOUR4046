@@ -120,7 +120,7 @@ export function Introduction(){
 
                 </div>
 
-                <p>出版：2023-009-29</p>
+                <p>出版：2023-09-29</p>
 
                 <div className=" mt-5 w-full h-fit">
                     <img src="./images/headline.png" className=" contain" />
