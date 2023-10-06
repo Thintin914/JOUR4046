@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { CanvasBlock } from "./utils/glsl/CanvasBlock";
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import { createCityscapeShader } from "./utils/glsl/cityscapeShader";
 import {AiFillCaretDown, AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai';
 import { delay } from "./utils/delay";
@@ -27,12 +27,25 @@ export function Introduction(){
 
     const [yearNeeded, setYearNeeded] = useState<number | null>(null);
 
+    const [salaryScope, salaryAnimate] = useAnimate();
+    const [salaryPercentageScope, salayPercentageAnimate] = useAnimate();
+
     const goToCaption = (name: string) =>{
         let t = document.getElementById(name);
         if (!t) return;
 
         let y = t.getBoundingClientRect().top + window.scrollY - 50;
         window.scrollTo({top: y, left: 0, behavior: "smooth"})
+    }
+
+    async function updateSalaryAnimation(){
+        await salaryAnimate(salaryScope.current, {y: -10, opacity: 0.6});
+        await salaryAnimate(salaryScope.current, {y: 0, opacity: 1.0});
+    }
+
+    async function updateSalaryPercentageAnimation(){
+        await salayPercentageAnimate(salaryPercentageScope.current, {y: -10, opacity: 0.6});
+        await salayPercentageAnimate(salaryPercentageScope.current, {y: 0, opacity: 1.0});
     }
 
     useEffect(() =>{
@@ -49,6 +62,14 @@ export function Introduction(){
         f();
     }, [])
 
+    useEffect(() =>{
+        updateSalaryAnimation();
+    }, [salary])
+
+    useEffect(() =>{
+        updateSalaryPercentageAnimation();
+    }, [salaryPercentage])
+
     return (
         <div className=" relative flex flex-col justify-start items-center w-full h-fit text-white tracking-tight">
 
@@ -61,9 +82,15 @@ export function Introduction(){
                 {
                     topics.map((item, index) =>{
                         return (
-                            <div key={`topic-item-${index}`} className="w-fit h-fit flex flex-col justify-center items-center">
+                            <div key={`topic-item-${index}`} className="w-fit h-fit flex flex-col justify-center items-center"
+                            style={{
+                                opacity:  1.2 - (index / (topics.length - 1))
+                            }}>
 
-                                <motion.div className=" w-5 h-5 rounded-full border-2 border-[#d9c58f] m-2 pointer-events-auto hover:cursor-pointer hover:bg-[#d9c58f]" 
+                                <motion.div className=" h-5 rounded-full border-2 border-[#d9c58f] m-2 pointer-events-auto hover:cursor-pointer hover:bg-[#d9c58f]" 
+                                    style={{
+                                        width: 20 * (2 - (index / (topics.length - 1)))
+                                    }}
                                     onClick={() => {
                                         goToCaption(item)
                                     }}
@@ -84,8 +111,8 @@ export function Introduction(){
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 transition={{duration: 1, delay: 1}}>
-                <p>社會/財經 — 樓市新聞</p>
-                <motion.div id="topic" className=" text-2xl lg:text-5xl mt-5"
+                <p className=" text-gray-500">社會/財經 — 樓市新聞</p>
+                <motion.div id="topic" className=" text-2xl lg:text-5xl mt-5 font-bold"
                     style={{
                         overflow: "hidden",
                         whiteSpace: 'nowrap'
@@ -98,7 +125,7 @@ export function Introduction(){
 
                 <div className="relative w-full h-fit flex flex-row justify-start items-center pr-24 mt-10 mb-5 gap-5">
 
-                    <p>撰文：張智芬，朱樂怡，胡朗霆，陳培威</p>
+                    <p className=" hover:cursor-pointer text-gray-500">撰文：<span className="text-[#d9c58f] hover:underline">張智芬</span>，<span className="text-[#d9c58f] hover:underline">朱樂怡</span>，<span className="text-[#d9c58f] hover:underline">胡朗霆</span>，<span className="text-[#d9c58f] hover:underline">陳培威</span></p>
 
                     <div className=" w-fit h-fit flex flex-row justify-center items-center">
                         <div className=" w-10 h-10 border-[2px] border-white bg-gray-700 rounded-full flex justify-center items-center absolute right-[75px]">
@@ -120,7 +147,7 @@ export function Introduction(){
 
                 </div>
 
-                <p>出版：2023-09-29</p>
+                <p className=" text-gray-500">出版：2023-09-29</p>
 
                 <div className=" mt-5 w-full h-fit">
                     <img src="./images/headline.png" className=" contain" />
@@ -156,7 +183,7 @@ export function Introduction(){
                             transition={{duration: 2, ease: "easeInOut"}}
                             viewport={{once: true}}>
                                     
-                            <p className=" font-semibold">樓價從高峰滑落 加息未完難回升</p>
+                            <p className=" font-semibold text-[#e5d19b]">樓價從高峰滑落 加息未完難回升</p>
                         </motion.div>
                     </div>
 
@@ -177,7 +204,7 @@ export function Introduction(){
                     transition={{duration: 2, ease: "easeInOut"}}
                     viewport={{once: true}}>
                             
-                    <p className=" font-semibold">「上車盤」雖劈價出售 惟買樓仍遙不可及</p>
+                    <p className=" font-semibold text-[#e5d19b]">「上車盤」雖劈價出售 惟買樓仍遙不可及</p>
                 </motion.div>
 
                 <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
@@ -220,7 +247,7 @@ export function Introduction(){
                 viewport={{once: true}}
                 transition={{duration: 1}}>
 
-                <motion.div id="caption3" className=" w-full pb-2 text-2xl lg:text-5xl flex flex-col justify-center items-center gap-5 font-semibold overflow-hidden whitespace-nowrap text-[#f6d766]"
+                <motion.div id="caption3" className=" w-full pb-2 text-2xl lg:text-5xl flex flex-col justify-center items-center gap-5 font-semibold overflow-hidden whitespace-nowrap text-[#e5d19b]"
                     initial={{width: 0}}
                     whileInView={{width: '100%'}}
                     transition={{duration: 2, ease: "easeInOut"}}
@@ -234,7 +261,7 @@ export function Introduction(){
                         <tbody>
                             <tr>
                                 <td>
-                                    <p className="text-[#f6d766]">選擇置業地區：</p>
+                                    <p>選擇置業地區：</p>
                                 </td>
                                 <td>
                                     <select ref={districtInputField} className=" w-[50vw] p-2 bg-[#414141]">
@@ -250,7 +277,7 @@ export function Introduction(){
                             </tr>
                             <tr>
                                 <td>
-                                    <p className="text-[#f6d766]">輸入你的每月收入：</p>
+                                    <p>輸入你的每月收入：</p>
                                 </td>
                                 <td>
                                     <div className=" flex justify-start items-center">
@@ -275,7 +302,7 @@ export function Introduction(){
                                                 })}
                                             />
 
-                                            <div className=" w-full h-full flex justify-center items-center pointer-events-none absolute overflow-hidden gap-2">
+                                            <motion.div ref={salaryScope} className=" w-full h-full flex justify-center items-center pointer-events-none absolute overflow-hidden gap-2">
                                                 
                                                 <BsCashCoin />
                                                 <AnimatedNumbers
@@ -286,28 +313,28 @@ export function Introduction(){
                                                     configs={[{"mass":1,"tension":1017,"friction":59},{"mass":1,"tension":1013,"friction":84},{"mass":1,"tension":515,"friction":60},{"mass":1,"tension":513,"friction":49}]}
                                                 ></AnimatedNumbers>
                                                 <p>HKD</p>
-                                            </div>
+                                            </motion.div>
                                         </div>
 
                                         <div className=" w-fit h-fit flex flex-col justify-center items-center gap-5 ml-5 select-none">
-                                            <motion.div className=" w-10 h-10 flex justify-center items-center text-black text-3xl bg-[#eecd85] rounded-full hover:cursor-pointer"
+                                            <motion.div className=" w-10 h-10 flex justify-center items-center text-black text-3xl bg-[#e5d19b] rounded-full hover:cursor-pointer"
                                                 onClick={() =>{
                                                     if (salary + 1000 <= 9999999)
                                                     setSalary(salary + 1000);
                                                 }}
                                                 initial={{scale: 1}}
-                                                whileHover={{scaleX: 0.8, scaleY: 1.2}}
-                                                whileTap={{scaleX: 1.4, scaleY: 0.4}}>
+                                                whileHover={{scale: 1.5, boxShadow: "0px 10px 20px rgba(241, 165, 244 ,0.8)"}}
+                                                whileTap={{scale: 1.2, boxShadow: "0px 5px 20px rgba(255, 255, 255, 0.6)"}}>
                                                 <AiOutlinePlus />
                                             </motion.div>
-                                            <motion.div className=" w-10 h-10 flex justify-center items-center text-black text-3xl bg-[#eecd85] rounded-full hover:cursor-pointer"
+                                            <motion.div className=" w-10 h-10 flex justify-center items-center text-black text-3xl bg-[#e5d19b] rounded-full hover:cursor-pointer"
                                                 onClick={() =>{
                                                     if (salary - 1000 >= 0)
                                                     setSalary(salary - 1000);
                                                 }}
                                                 initial={{scale: 1}}
-                                                whileHover={{scaleX: 0.8, scaleY: 1.2}}
-                                                whileTap={{scaleX: 1.4, scaleY: 0.4}}>
+                                                whileHover={{scale: 1.5, boxShadow: "0px 10px 20px rgba(241, 165, 244 ,0.8)"}}
+                                                whileTap={{scale: 1.2, boxShadow: "0px 5px 20px rgba(255, 255, 255, 0.6)"}}>
                                                 <AiOutlineMinus />
                                             </motion.div>
                                         </div>
@@ -317,7 +344,7 @@ export function Introduction(){
                             </tr>
                             <tr>
                                 <td>
-                                    <p className="text-[#f6d766]">選擇你每月存款比例：</p>
+                                    <p>選擇你每月存款比例：</p>
                                 </td>
                                 <td>
                                 <div className=" flex justify-start items-center">
@@ -342,7 +369,7 @@ export function Introduction(){
                                                 })}
                                             />
 
-                                            <div className=" w-full h-full flex justify-center items-center pointer-events-none absolute overflow-hidden gap-2">
+                                            <motion.div ref={salaryPercentageScope} className=" w-full h-full flex justify-center items-center pointer-events-none absolute overflow-hidden gap-2">
                                                 
                                                 <BsCash />
                                                 <AnimatedNumbers
@@ -353,29 +380,29 @@ export function Introduction(){
                                                     configs={[{"mass":1,"tension":817,"friction":59},{"mass":1,"tension":813,"friction":84},{"mass":1,"tension":815,"friction":60},{"mass":1,"tension":813,"friction":49}]}
                                                 ></AnimatedNumbers>
                                                 <p>%</p>
-                                            </div>
+                                            </motion.div>
                                         </div>
 
                                         <div className=" w-fit h-fit flex flex-col justify-center items-center gap-5 ml-5 select-none">
-                                            <motion.div className=" w-10 h-10 flex justify-center items-center text-black text-3xl bg-[#eecd85] rounded-full hover:cursor-pointer"
+                                            <motion.div className=" w-10 h-10 flex justify-center items-center text-black text-3xl bg-[#e5d19b] rounded-full hover:cursor-pointer"
                                                 onClick={() =>{
                                                     if (salaryPercentage + 5 <= 100)
                                                         setSalaryPercentage(salaryPercentage + 5);
                                                 }}
                                                 initial={{scale: 1}}
-                                                whileHover={{scaleX: 0.8, scaleY: 1.2}}
-                                                whileTap={{scaleX: 1.4, scaleY: 0.4}}>
+                                                whileHover={{scale: 1.5, boxShadow: "0px 10px 20px rgba(241, 165, 244 ,0.8)"}}
+                                                whileTap={{scale: 1.2, boxShadow: "0px 5px 20px rgba(255, 255, 255, 0.6)"}}>
                                                 <AiOutlinePlus />
                                             </motion.div>
-                                            <motion.div className=" w-10 h-10 flex justify-center items-center text-black text-3xl bg-[#eecd85] rounded-full hover:cursor-pointer"
+                                            <motion.div className=" w-10 h-10 flex justify-center items-center text-black text-3xl bg-[#e5d19b] rounded-full hover:cursor-pointer"
                                                 onClick={() =>{
                                                     if (salaryPercentage - 5 >= 0){
                                                         setSalaryPercentage(salaryPercentage - 5);
                                                     }
                                                 }}
                                                 initial={{scale: 1}}
-                                                whileHover={{scaleX: 0.8, scaleY: 1.2}}
-                                                whileTap={{scaleX: 1.4, scaleY: 0.4}}>
+                                                whileHover={{scale: 1.5, boxShadow: "0px 10px 20px rgba(241, 165, 244 ,0.8)"}}
+                                                whileTap={{scale: 1.2, boxShadow: "0px 5px 20px rgba(255, 255, 255, 0.6)"}}>
                                                 <AiOutlineMinus />
                                             </motion.div>
                                         </div>
@@ -389,10 +416,9 @@ export function Introduction(){
                 </div>
 
                 <div className=" w-full flex justify-center items-center text-3xl">
-                    <motion.div className=" bg-[#f6d766] p-5 text-black font-semibold hover:cursor-pointer"
-                        initial={{scale: 1}}
-                        whileHover={{scale: 1.3}}
-                        transition={{ease: "easeInOut"}}
+                    <motion.div className=" bg-[#e5d19b] p-5 text-black font-semibold hover:cursor-pointer"
+                        initial={{scale: 1, background: '#e5d19b'}}
+                        whileHover={{scale: 1.2, y: 10, background: '#FBE683'}}
                         onClick={() =>{
                             let index = houseSellingData.findIndex((e) => e.name === districtInputField.current!.value);
                             if (index === -1)
@@ -439,7 +465,7 @@ export function Introduction(){
                     whileInView={{width: '100%'}}
                     transition={{duration: 2, ease: "easeInOut"}}
                     viewport={{once: true}}>
-                    <p className=" font-semibold">租金重回疫前水平 港島地段直逼兩萬</p>
+                    <p className=" font-semibold text-[#e5d19b]">租金重回疫前水平 港島地段直逼兩萬</p>
                 </motion.div>
 
                 <div className=" w-fit h-fit flex flex-col justify-center items-center gap-10">
