@@ -52,8 +52,8 @@ export function Introduction(){
 
     useEffect(() =>{
         createCityscapeShader('intro-gl', ['./images/cityscape.jpg'], 0.0005, 0.05, 0.1, 3);
-        createGradientCircleShader('yearNeed-gl1', 0.05, 164, 209, 219 , 0.08);
-        createGradientCircleShader('yearNeed-gl2', 0.01, 68, 104, 200 , 0.04);
+        createGradientCircleShader('yearNeed-gl1', 0.05, 233, 211, 128 , 0.08);
+        createGradientCircleShader('yearNeed-gl2', 0.01, 48, 59, 131 , 0.04);
 
         const f = async() =>{
             await delay(5000);
@@ -190,7 +190,7 @@ export function Introduction(){
                     <p className=" font-semibold text-[#e5d19b]">樓價從高峰滑落 加息未完難回升</p>
                 </motion.div>
 
-                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262bb3] gap-10">
                     <p>香港樓價冠絕全球，多次成為全球樓價最難負擔城市。而根據差餉物業估價署（差估署）公佈的樓價指數，香港樓價至2003年沙士後不斷飆升，由2003年的61.6到2019年的383.0的高位，於17年間升逾4.2倍。</p>
                     <p>但疫情爆發、利率上升加上環球經濟增長放緩，令香港樓價開始下跌。根據瑞銀公佈的全球房地產泡沫指數，今年是香港自2015年報告發表以來首次跌出「泡沫風險」的區間；而疫情爆發對房地產市場帶來的影響，在中港通關後亦未能完全抵消，匯豐更「轉軚」，看淡香港樓市，預料明年樓市會下跌5%。</p>
                 </div>
@@ -214,7 +214,7 @@ export function Introduction(){
                     <p className=" font-semibold text-[#e5d19b]">「上車盤」雖劈價出售 惟買樓仍遙不可及</p>
                 </motion.div>
 
-                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262bb3] gap-10">
                     <p>儘管香港樓價有下跌的跡象，但對比其他城市依然高昂。 以單位面積小於430呎的「上車盤」為例，據差估署資料顯示，此類型單位於疫情期間依然價格高企，2021年全年樓價指數更是歷年最高位。雖然現在從高位回落近一成七，但對於年輕人而言仍是頗大的負擔。</p>
                     <p>在聯繫匯率的制度下，香港跟隨美聯儲加息步伐，按揭利息上升，令買家入市意欲下降。市道淡靜下，不少新盤「劈價」出售，吸引買家入市。其中8月開售、由長實發展的油塘親海駅II，最平的「上車盤」折實後僅售賣290萬元，並於一周內收逾3.8萬票，為紀錄新高。</p>
                 </div>
@@ -233,7 +233,7 @@ export function Introduction(){
 
                 <TopRightDeco top={-80} right={-40} />
                 <TopLeftDeco top={-80} left={-40} />
-                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262bb3] gap-10">
                     <p>新盤「劈價」固然吸引不少買家入市，但樓價仍然處於高位。中原地產資料顯示，截至今年九月底，有22個新盤開價發售，而其上車盤的價格落在約354至1431萬不等；按港島、九龍、新界東、新界西劃分，四區樓價中位數亦可差近一倍。而按照政府最新公佈香港25至34歲青年月入息中位數22200元計算，即使是購買最低價的單位，亦需要不吃不喝逾13年才能夠全款買入。</p>
                 </div>
             </motion.div>
@@ -246,7 +246,7 @@ export function Introduction(){
                 viewport={{once: true}}
                 transition={{duration: 1}}>
 
-                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262b7d] gap-10">
+                <div className=" w-fit h-fit flex flex-col justify-center items-center bg-[#29262bb3] gap-10">
                     <p>新盤價格戰亦帶動二手樓樓價下跌，業主紛紛蝕讓希望可以搶佔市場。儘管如此，二手樓樓價仍不比新盤低。按照香港十八區劃分、據中原地產近一個月的成交整合，各區二手樓價格中位數落在約353至577萬不等，僅有四區二手樓售價中位數貼近新盤最低售價，即使是指月入約2.22萬元的人仍需要不吃不喝逾13年才能夠全款買入，可見即使數據顯示「上車盤」的價格回落近一成七，但在港買樓對於年青人而言仍是高不可攀。</p>
                 </div>
             </motion.div>
