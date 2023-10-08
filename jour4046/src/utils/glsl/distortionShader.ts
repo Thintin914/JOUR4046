@@ -1,5 +1,4 @@
 import { basicImageVertShader, distortionFragShader } from "./shaders";
-import { getGLProgram } from "./updateShaders";
 import { loadImages, render } from "./useImageShader";
 
 

@@ -11,6 +11,7 @@ import AnimatedNumbers from "react-animated-numbers";
 import {BsCash, BsCashCoin, BsFillHouseCheckFill} from 'react-icons/bs'
 import { HouseRantingBarChart } from "./HousingRantingBarChart";
 import { BottomDeco, BottomLeftDeco, BottomRightDeco, LeftDeco, RightDeco, TopLeftDeco, TopRightDeco, VerticalDeco } from "./utils/LineDeco";
+import { createGradientCircleShader } from "./utils/glsl/gradientCircleShader";
 
 const topics: string[] = [
     'caption1',
@@ -51,6 +52,8 @@ export function Introduction(){
 
     useEffect(() =>{
         createCityscapeShader('intro-gl', ['./images/cityscape.jpg'], 0.0005, 0.05, 0.1, 3);
+        createGradientCircleShader('yearNeed-gl1', 0.05, 164, 209, 219 , 0.08);
+        createGradientCircleShader('yearNeed-gl2', 0.01, 68, 104, 200 , 0.04);
 
         const f = async() =>{
             await delay(5000);
@@ -451,6 +454,7 @@ export function Introduction(){
                 </div>
                 
                 <div id="yearNeeded" className="mt-60" />
+
                 <div className="relative w-full flex justify-center items-center "
                     style={{
                         display: yearNeeded === null ? 'none' : 'flex'
@@ -459,10 +463,23 @@ export function Introduction(){
                     <TopRightDeco top={0} right={-40} />
                 </div>
 
-                <div className="flex justify-center items-center w-full h-fit"
+                <div className="relative flex justify-center items-center w-full h-fit"
                     style={{
                         display: yearNeeded === null ? '0px' : '25vh'
                     }}>
+
+                    <div className=" w-full lg:w-1/2 h-[30vh] lg:h-[10vh] absolute -z-20"
+                        style={{
+                            display: yearNeeded === null ? 'none' : 'flex'
+                        }}
+                    >
+                            <div className=" w-full h-full absolute">
+                                <CanvasBlock id="yearNeed-gl1" canvasW={200} canvasH={200} />
+                            </div>
+                            <div className=" w-full h-full absolute">
+                                <CanvasBlock id="yearNeed-gl2" canvasW={200} canvasH={200} />
+                            </div>
+                    </div>
 
                 {
                     yearNeeded === null ? <></> :

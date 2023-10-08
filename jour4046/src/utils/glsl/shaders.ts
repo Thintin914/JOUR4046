@@ -279,3 +279,47 @@ void main(){
   gl_FragColor = vec4(color.rgb, a);
 }
 `;
+
+export const gradientCircleFragShader = `
+precision lowp float;
+
+uniform float scale;
+uniform vec2 resolution;
+uniform float time;
+
+uniform vec3 val;
+
+uniform float baseRadius;
+
+float variation(vec2 v1, vec2 v2, float strength, float speed) {
+return sin(
+      dot(normalize(v1), normalize(v2)) * strength + time * speed
+  ) / 100.0;
+}
+
+vec4 paintCircle (vec2 uv, vec2 center, float rad, float width) {
+  
+  vec2 diff = center-uv;
+  float len = length(diff);
+
+  len += variation(diff, vec2(0.0, 1.0), 5.0, 1.0);
+  len -= variation(diff, vec2(1.0, 0.0), 5.0, 1.0);
+  
+  float circle = 1.0 - smoothstep(rad, rad+width, len);
+
+  return vec4(circle * val.r, circle * val.g, circle * val.b, circle);
+}
+
+
+void main(){
+  vec2 uv = gl_FragCoord.xy / resolution.xy;
+  
+  vec4 color;
+  float radius = (baseRadius / 2.0) + abs(cos(time * 0.1) * baseRadius);
+  vec2 center = vec2(0.5);
+  
+  color = paintCircle(uv, center, radius, 0.3);
+
+  gl_FragColor = vec4(color);
+}
+`;
