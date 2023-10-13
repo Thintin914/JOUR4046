@@ -221,7 +221,7 @@ export function HousePricePreSquareChart(){
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
                     <YAxis type="number" domain={[0, 500]}/>
-                    <Tooltip content={<CustomTooltip prefix={'$'} postfix={'萬'} />} />
+                    <Tooltip content={<CustomTooltip />} />
                     <Legend />
                     <Line type="monotone" dataKey="租金指數" stroke="#F1D371">
                     <LabelList content={<CustomizedLabel />} />
